@@ -1,0 +1,2258 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="Fuel Pressure Gauge">
+    <Descr>AceXML Document</Descr>
+    <Filename>rudderlock.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory="C:\Users\Gary\Documents\New Gauges\newgauges\A321">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>256,256</Size>
+        <Element id="Element">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:CIRCUIT GENERAL PANEL ON, bool)</Visibility>
+            <Image id="ecams_iaeengine_primary_background.bmp" Name="ecams_iaeengine_primary_background.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+                <Luminous>True</Luminous>
+            </Image>
+            <Element id="ENG1 readout">
+                <FloatPosition>37.000,52.000</FloatPosition>
+                <Visibility>(A:Turb eng1 N1, percent) 0.1 &gt;</Visibility>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>%((A:Turb eng1 N1, percent) abs 100.1 &gt; if{ &apos;red&apos; } els{ 0x01E00D )</FontColor>
+                    <FontFace>ARIAL</FontFace>
+                    <FontHeight>12</FontHeight>
+                    <GaugeString>%((A:Turb eng1 N1, percent) abs)%!5.1f!</GaugeString>
+                    <Luminous>True</Luminous>
+                    <Size>36,13</Size>
+                    <Transparent>True</Transparent>
+                </GaugeText>
+            </Element>
+            <Element id="ENG2 readout">
+                <FloatPosition>125.000,52.000</FloatPosition>
+                <Visibility>(A:Turb eng2 N1, percent) 0.1 &gt;</Visibility>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>%((A:Turb eng2 N1, percent) abs 100.1 &gt; if{ &apos;red&apos; } els{ 0x01E00D )</FontColor>
+                    <FontFace>ARIAL</FontFace>
+                    <FontHeight>12</FontHeight>
+                    <GaugeString>%((A:Turb eng2 N1, percent) abs)%!5.1f!</GaugeString>
+                    <Luminous>True</Luminous>
+                    <Size>36,13</Size>
+                    <Transparent>True</Transparent>
+                </GaugeText>
+            </Element>
+                        <Element id="EgT needle left">
+                <FloatPosition>36.437,106.652</FloatPosition>
+                <Visibility>(A:General eng1 exhaust gas temperature, celsius) 50 &gt;</Visibility>
+                <Image id="ecam1_needle.bmp" Name="ecam1_needle.bmp">
+                    <Transparent>True</Transparent>
+                    <Axis>0,2</Axis>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+                <Rotation id="Rotation">
+                    <PointsTo>WEST</PointsTo>
+                    <Expression id="Expression">
+                        <Minimum>0.000</Minimum>
+                        <Maximum>2000.000</Maximum>
+                        <Script>(A:General eng1 exhaust gas temperature, celsius)</Script>
+                    </Expression>
+                    <NonlinearityTable id="NonlinearityTable">
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>0.000</ExpressionResult>
+                            <FloatPosition>16.000,126.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>500.000</ExpressionResult>
+                            <FloatPosition>9.000,95.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>1000.000</ExpressionResult>
+                            <FloatPosition>46.000,81.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>2000.000</ExpressionResult>
+                            <FloatPosition>64.000,106.000</FloatPosition>
+                        </NonlinearityEntry>
+                    </NonlinearityTable>
+                </Rotation>
+            </Element>
+            <Element id="Eng 1 EGT readout">
+                <FloatPosition>29.000,110.000</FloatPosition>
+                <Visibility>(A:General eng1 exhaust gas temperature, celsius) 50 &gt;</Visibility>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>%((A:General eng1 exhaust gas temperature, celsius) abs 1000 &gt; if{ &apos;red&apos; } els{ 0x01E00D )</FontColor>
+                    <FontHeight>12</FontHeight>
+                    <GaugeString>%((A:General eng1 exhaust gas temperature, celsius))%!5d!</GaugeString>
+                    <Luminous>True</Luminous>
+                    <Size>26,13</Size>
+                    <Transparent>True</Transparent>
+                </GaugeText>
+            </Element>
+            <Element id="egt needle right">
+                <FloatPosition>121.875,106.652</FloatPosition>
+                <Visibility>(A:General eng2 exhaust gas temperature, celsius) 50 &gt;</Visibility>
+                <Image id="ecam1_needle.bmp" Name="ecam1_needle.bmp">
+                    <Transparent>True</Transparent>
+                    <Axis>27.437,1.562</Axis>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+                <Rotation id="Rotation">
+                    <PointsTo>WEST</PointsTo>
+                    <Expression id="Expression">
+                        <Minimum>0.000</Minimum>
+                        <Maximum>2000.000</Maximum>
+                        <Script>(A:General eng2 exhaust gas temperature, celsius)</Script>
+                    </Expression>
+                    <NonlinearityTable id="NonlinearityTable">
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>0.000</ExpressionResult>
+                            <FloatPosition>100.000,126.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>500.000</ExpressionResult>
+                            <FloatPosition>95.000,95.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>1000.000</ExpressionResult>
+                            <FloatPosition>132.000,80.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>2000.000</ExpressionResult>
+                            <FloatPosition>149.000,106.000</FloatPosition>
+                        </NonlinearityEntry>
+                    </NonlinearityTable>
+                </Rotation>
+            </Element>
+            <Element id="eng 2 egt readout">
+                <FloatPosition>115.000,110.000</FloatPosition>
+                <Visibility>(A:General eng2 exhaust gas temperature, celsius) 50 &gt;</Visibility>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>%((A:General eng2 exhaust gas temperature, celsius) abs 1000 &gt; if{ &apos;red&apos; } els{ 0x01E00D )</FontColor>
+                    <FontHeight>12</FontHeight>
+                    <GaugeString>%((A:General eng2 exhaust gas temperature, celsius))%!5d!</GaugeString>
+                    <Luminous>True</Luminous>
+                    <Size>80,13</Size>
+                    <Transparent>True</Transparent>
+                </GaugeText>
+            </Element>
+            <Element id="throttle1indicator">
+                <FloatPosition>36.062,44.687</FloatPosition>
+                <Visibility>(L:thr1detent,enum) 0 == (A:Turb eng1 N1, percent) 0.1 &gt; &amp;&amp; </Visibility>
+                <Image id="throttleindicator.bmp" Name="throttleindicator.bmp">
+                    <Transparent>True</Transparent>
+                    <Axis>37.062,3.500</Axis>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+                <Rotation id="Rotation">
+                    <PointsTo>WEST</PointsTo>
+                    <Expression id="Expression">
+                        <Minimum>0.000</Minimum>
+                        <Maximum>82.100</Maximum>
+                        <Script>(A:GENERAL ENG1 THROTTLE LEVER POSITION,percent)</Script>
+                    </Expression>
+                    <NonlinearityTable id="NonlinearityTable">
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>0.000</ExpressionResult>
+                            <FloatPosition>15.000,62.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>50.000</ExpressionResult>
+                            <FloatPosition>15.000,36.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>82.100</ExpressionResult>
+                            <FloatPosition>34.500,20.000</FloatPosition>
+                        </NonlinearityEntry>
+                    </NonlinearityTable>
+                </Rotation>
+            </Element>
+            <Element id="throttle1indicatorCL">
+                <FloatPosition>36.062,44.687</FloatPosition>
+                <Visibility>(L:thr1detent,enum) 1 == (A:Turb eng1 N1, percent) 0.1 &gt; &amp;&amp;</Visibility>
+                <Image id="throttleindicator.bmp" Name="throttleindicator.bmp">
+                    <Transparent>True</Transparent>
+                    <Axis>37.062,3.500</Axis>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+                <Rotation id="Rotation">
+                    <PointsTo>WEST</PointsTo>
+                    <Expression id="Expression">
+                        <Minimum>0.000</Minimum>
+                        <Maximum>100.000</Maximum>
+                        <Script>(A:GENERAL ENG1 THROTTLE LEVER POSITION,percent) 82.1 &gt;</Script>
+                    </Expression>
+                    <NonlinearityTable id="NonlinearityTable">
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>0.000</ExpressionResult>
+                            <FloatPosition>34.500,20.000</FloatPosition>
+                        </NonlinearityEntry>
+                    </NonlinearityTable>
+                </Rotation>
+            </Element>
+            <Element id="throttle1indicatorFLX">
+                <FloatPosition>36.062,44.687</FloatPosition>
+                <Visibility>(L:thr1detent,enum) 2 == (A:Turb eng1 N1, percent) 0.1 &gt; &amp;&amp;</Visibility>
+                <Image id="throttleindicator.bmp" Name="throttleindicator.bmp">
+                    <Transparent>True</Transparent>
+                    <Axis>37.062,3.500</Axis>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+                <Rotation id="Rotation">
+                    <PointsTo>WEST</PointsTo>
+                    <Expression id="Expression">
+                        <Minimum>0.000</Minimum>
+                        <Maximum>100.000</Maximum>
+                        <Script>(A:GENERAL ENG1 THROTTLE LEVER POSITION,percent) 91.9 &gt;</Script>
+                    </Expression>
+                    <NonlinearityTable id="NonlinearityTable">
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>0.000</ExpressionResult>
+                            <FloatPosition>41.500,20.000</FloatPosition>
+                        </NonlinearityEntry>
+                    </NonlinearityTable>
+                </Rotation>
+            </Element>
+            <Element id="throttle1indicatorTOGA">
+                <FloatPosition>36.062,44.687</FloatPosition>
+                <Visibility>(L:thr1detent,enum) 3 == (A:Turb eng1 N1, percent) 0.1 &gt; &amp;&amp;</Visibility>
+                <Image id="throttleindicator.bmp" Name="throttleindicator.bmp">
+                    <Transparent>True</Transparent>
+                    <Axis>37.062,3.500</Axis>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+                <Rotation id="Rotation">
+                    <PointsTo>WEST</PointsTo>
+                    <Expression id="Expression">
+                        <Minimum>0.000</Minimum>
+                        <Maximum>100.000</Maximum>
+                        <Script>(A:GENERAL ENG1 THROTTLE LEVER POSITION,percent) 98.9 &gt;</Script>
+                    </Expression>
+                    <NonlinearityTable id="NonlinearityTable">
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>0.000</ExpressionResult>
+                            <FloatPosition>45.000,20.000</FloatPosition>
+                        </NonlinearityEntry>
+                    </NonlinearityTable>
+                </Rotation>
+            </Element>
+            <Element id="throttle2indicator">
+                <FloatPosition>121.875,44.875</FloatPosition>
+                <Visibility>(L:thr2detent,enum) 0 == (A:Turb eng2 N1, percent) 0.1 &gt; &amp;&amp; </Visibility>
+                <Image id="throttleindicator.bmp" Name="throttleindicator.bmp">
+                    <Transparent>True</Transparent>
+                    <Axis>36.875,4.100</Axis>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+                <Rotation id="Rotation">
+                    <PointsTo>WEST</PointsTo>
+                    <Expression id="Expression">
+                        <Minimum>0.000</Minimum>
+                        <Maximum>82.100</Maximum>
+                        <Script>(A:GENERAL ENG2 THROTTLE LEVER POSITION,percent)</Script>
+                    </Expression>
+                    <NonlinearityTable id="NonlinearityTable">
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>0.000</ExpressionResult>
+                            <FloatPosition>103.000,60.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>50.000</ExpressionResult>
+                            <FloatPosition>103.000,37.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>82.100</ExpressionResult>
+                            <FloatPosition>120.500,20.000</FloatPosition>
+                        </NonlinearityEntry>
+                    </NonlinearityTable>
+                </Rotation>
+            </Element>
+            <Element id="throttle2indicatorCL">
+                <FloatPosition>121.875,44.875</FloatPosition>
+                <Visibility>(L:thr2detent,enum) 1 == (A:Turb eng2 N1, percent) 0.1 &gt; &amp;&amp;</Visibility>
+                <Image id="throttleindicator.bmp" Name="throttleindicator.bmp">
+                    <Transparent>True</Transparent>
+                    <Axis>37.062,3.500</Axis>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+                <Rotation id="Rotation">
+                    <PointsTo>WEST</PointsTo>
+                    <Expression id="Expression">
+                        <Minimum>0.000</Minimum>
+                        <Maximum>100.000</Maximum>
+                        <Script>(A:GENERAL ENG1 THROTTLE LEVER POSITION,percent) 82.1 &gt;</Script>
+                    </Expression>
+                    <NonlinearityTable id="NonlinearityTable">
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>0.000</ExpressionResult>
+                            <FloatPosition>120.500,20.000</FloatPosition>
+                        </NonlinearityEntry>
+                    </NonlinearityTable>
+                </Rotation>
+            </Element>
+            <Element id="throttle2indicatorFLX">
+                <FloatPosition>121.875,44.875</FloatPosition>
+                <Visibility>(L:thr2detent,enum) 2 == (A:Turb eng2 N1, percent) 0.1 &gt; &amp;&amp;</Visibility>
+                <Image id="throttleindicator.bmp" Name="throttleindicator.bmp">
+                    <Transparent>True</Transparent>
+                    <Axis>37.062,3.500</Axis>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+                <Rotation id="Rotation">
+                    <PointsTo>WEST</PointsTo>
+                    <Expression id="Expression">
+                        <Minimum>0.000</Minimum>
+                        <Maximum>100.000</Maximum>
+                        <Script>(A:GENERAL ENG2 THROTTLE LEVER POSITION,percent) 91.9 &gt;</Script>
+                    </Expression>
+                    <NonlinearityTable id="NonlinearityTable">
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>0.000</ExpressionResult>
+                            <FloatPosition>126.500,25.000</FloatPosition>
+                        </NonlinearityEntry>
+                    </NonlinearityTable>
+                </Rotation>
+            </Element>
+            <Element id="throttle2indicatorTOGA">
+                <FloatPosition>121.875,44.875</FloatPosition>
+                <Visibility>(L:thr2detent,enum) 3 == (A:Turb eng2 N1, percent) 0.1 &gt; &amp;&amp; </Visibility>
+                <Image id="throttleindicator.bmp" Name="throttleindicator.bmp">
+                    <Transparent>True</Transparent>
+                    <Axis>37.062,3.500</Axis>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+                <Rotation id="Rotation">
+                    <PointsTo>WEST</PointsTo>
+                    <Expression id="Expression">
+                        <Minimum>0.000</Minimum>
+                        <Maximum>100.000</Maximum>
+                        <Script>(A:GENERAL ENG1 THROTTLE LEVER POSITION,percent) 98.9 &gt;</Script>
+                    </Expression>
+                    <NonlinearityTable id="NonlinearityTable">
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>0.000</ExpressionResult>
+                            <FloatPosition>129.000,25.000</FloatPosition>
+                        </NonlinearityEntry>
+                    </NonlinearityTable>
+                </Rotation>
+            </Element>
+            <Element id="IDLE">
+                <FloatPosition>67.000,10.000</FloatPosition>
+                <Visibility>(L:thr1detent,enum) 0 == (L:thr1detent,enum) 0 == (A:Turb eng1 N1, percent) 0.1 &gt; &amp;&amp;  (L:thr2detent,enum) 0 == &amp;&amp; (A:Turb eng2 N1, percent) 0.1 &gt; &amp;&amp;</Visibility>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>0x01E00D</FontColor>
+                    <FontFace>Georgia</FontFace>
+                    <FontHeight>12</FontHeight>
+                    <GaugeString>IDLE</GaugeString>
+                    <Size>80,19</Size>
+                    <Transparent>True</Transparent>
+                    <Underline>True</Underline>
+                </GaugeText>
+            </Element>
+            <Element id="CL">
+                <FloatPosition>170.000,50.000</FloatPosition>
+                <Visibility>(L:thr1detent,enum) 1 == (L:thr2detent,enum) 1 == &amp;&amp;</Visibility>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>aqua</FontColor>
+                    <FontHeight>13</FontHeight>
+                    <GaugeString>CL</GaugeString>
+                    <Size>80,19</Size>
+                    <Transparent>True</Transparent>
+                    <Underline>True</Underline>
+                </GaugeText>
+            </Element>
+            <Element id="FLX">
+                <FloatPosition>170.000,50.000</FloatPosition>
+                <Visibility>(L:thr1detent,enum) 2 == (L:thr2detent,enum) 2 == &amp;&amp;</Visibility>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>aqua</FontColor>
+                    <FontHeight>13</FontHeight>
+                    <GaugeString>FLX</GaugeString>
+                    <Size>80,19</Size>
+                    <Transparent>True</Transparent>
+                    <Underline>True</Underline>
+                </GaugeText>
+            </Element>
+            <Element id="TOGA">
+                <FloatPosition>170.000,50.000</FloatPosition>
+                <Visibility>(L:thr1detent,enum) 3 == (L:thr2detent,enum) 3 == &amp;&amp;</Visibility>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>aqua</FontColor>
+                    <FontHeight>13</FontHeight>
+                    <GaugeString>TOGA</GaugeString>
+                    <Size>80,19</Size>
+                    <Transparent>True</Transparent>
+                    <Underline>True</Underline>
+                </GaugeText>
+            </Element>
+            <Element id="CL - 82%">
+                <FloatPosition>220.000,50.000</FloatPosition>
+                <Visibility>(L:thr1detent,enum) 1 == (L:thr2detent,enum) 1 == &amp;&amp; </Visibility>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>0x01E00D</FontColor>
+                    <FontHeight>13</FontHeight>
+                    <GaugeString>82.1</GaugeString>
+                    <Size>80,19</Size>
+                    <Transparent>True</Transparent>
+                </GaugeText>
+            </Element>
+            <Element id="FLX - 92%">
+                <FloatPosition>220.000,50.000</FloatPosition>
+                <Visibility>(L:thr1detent,enum) 2 == (L:thr2detent,enum) 2 == &amp;&amp;</Visibility>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>0x01E00D</FontColor>
+                    <FontHeight>13</FontHeight>
+                    <GaugeString>92.1</GaugeString>
+                    <Size>80,19</Size>
+                    <Transparent>True</Transparent>
+                </GaugeText>
+            </Element>
+            <Element id="TOGA - 99%">
+                <FloatPosition>230.000,50.000</FloatPosition>
+                <Visibility>(L:thr1detent,enum) 3 == (L:thr2detent,enum) 3 == &amp;&amp;</Visibility>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>0x01E00D</FontColor>
+                    <FontHeight>13</FontHeight>
+                    <GaugeString>99.1</GaugeString>
+                    <Size>80,19</Size>
+                    <Transparent>True</Transparent>
+                </GaugeText>
+            </Element>
+            <Element id="%">
+                <FloatPosition>246.000,50.000</FloatPosition>
+                <Visibility>(L:thr1detent,enum) 0 &gt; (L:thr2detent,enum) 0 &gt; &amp;&amp;</Visibility>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>aqua</FontColor>
+                    <FontHeight>13</FontHeight>
+                    <GaugeString>%%</GaugeString>
+                    <Size>80,19</Size>
+                    <Transparent>True</Transparent>
+                </GaugeText>
+                <Shift id="Shift">
+                    <Scale>10.000,0.000</Scale>
+                    <Expression id="Expression">
+                        <Script>(L:thr1detent,enum) 3 == (L:thr2detent,enum) 3 == &amp;&amp;</Script>
+                    </Expression>
+                </Shift>
+            </Element>
+            <Element id="Needle">
+                <FloatPosition>36.062,44.687</FloatPosition>
+                <Visibility>(A:Turb eng1 N1, percent) 0.1 &gt;</Visibility>
+                <Image id="ECAM1_NEEDLE.bmp" Name="ECAM1_NEEDLE.bmp">
+                    <Transparent>True</Transparent>
+                    <Axis>26.062,0.687</Axis>
+                    <Bright>True</Bright>
+                </Image>
+                <Rotation id="Rotation">
+                    <PointsTo>WEST</PointsTo>
+                    <Expression id="Expression">
+                        <Minimum>0.000</Minimum>
+                        <Maximum>120.000</Maximum>
+                        <Script>(A:Turb eng1 N1, percent)</Script>
+                    </Expression>
+                    <FailureTable id="FailureTable">
+                        <Failure id="Failure">
+                        </Failure>
+                    </FailureTable>
+                    <NonlinearityTable id="NonlinearityTable">
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>0.000</ExpressionResult>
+                            <FloatPosition>15.000,65.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>50.000</ExpressionResult>
+                            <FloatPosition>15.000,36.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>100.000</ExpressionResult>
+                            <FloatPosition>44.000,25.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>120.000</ExpressionResult>
+                            <FloatPosition>64.000,44.000</FloatPosition>
+                        </NonlinearityEntry>
+                    </NonlinearityTable>
+                </Rotation>
+            </Element>
+            <Element id="Needle2">
+                <FloatPosition>121.875,44.875</FloatPosition>
+                <Visibility>(A:Turb eng2 N1, percent) 0.1 &gt;</Visibility>
+                <Image id="ECAM1_NEEDLE.bmp" Name="ECAM1_NEEDLE.bmp">
+                    <Transparent>True</Transparent>
+                    <Axis>26.875,0.875</Axis>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+                <Rotation id="Rotation">
+                    <PointsTo>WEST</PointsTo>
+                    <Expression id="Expression">
+                        <Minimum>0.000</Minimum>
+                        <Maximum>120.000</Maximum>
+                        <Script>(A:Turb eng2 N1, percent)</Script>
+                    </Expression>
+                    <FailureTable id="FailureTable">
+                        <Failure id="Failure">
+                        </Failure>
+                    </FailureTable>
+                    <NonlinearityTable id="NonlinearityTable">
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>0.000</ExpressionResult>
+                            <FloatPosition>103.000,64.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>50.000</ExpressionResult>
+                            <FloatPosition>103.000,37.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>100.000</ExpressionResult>
+                            <FloatPosition>129.000,25.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>120.000</ExpressionResult>
+                            <FloatPosition>149.000,44.000</FloatPosition>
+                        </NonlinearityEntry>
+                    </NonlinearityTable>
+                </Rotation>
+            </Element>
+            <Element id="KGS/H2">
+                <FloatPosition>68.000,196.000</FloatPosition>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>aqua</FontColor>
+                    <FontFace>arial</FontFace>
+                    <FontHeight>12</FontHeight>
+                    <GaugeString>KG/H</GaugeString>
+                    <Size>80,13</Size>
+                    <Transparent>True</Transparent>
+                </GaugeText>
+            </Element>
+            <Element id="KGS">
+                <FloatPosition>253.000,100.000</FloatPosition>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>aqua</FontColor>
+                    <FontFace>arial</FontFace>
+                    <FontHeight>12</FontHeight>
+                    <GaugeString>KGS</GaugeString>
+                    <Size>80,13</Size>
+                    <Transparent>True</Transparent>
+                </GaugeText>
+            </Element>
+            <Element id="engine1 n2 pct">
+                <FloatPosition>24.000,160.000</FloatPosition>
+                <Visibility>(A:Turb eng1 N2, percent) 2.99 &gt;</Visibility>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>0x01E00D</FontColor>
+                    <FontHeight>12</FontHeight>
+                    <GaugeString>%((A:Turb eng1 N2, percent) abs)%!5.1f!</GaugeString>
+                    <Luminous>True</Luminous>
+                    <Size>80,13</Size>
+                    <Transparent>True</Transparent>
+                </GaugeText>
+            </Element>
+            <Element id="engine2 n2 pct">
+                <FloatPosition>109.000,160.000</FloatPosition>
+                <Visibility>(A:Turb eng2 N2, percent) 2.99 &gt;</Visibility>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>0x01E00D</FontColor>
+                    <FontHeight>12</FontHeight>
+                    <GaugeString>%((A:Turb eng2 N2, percent) abs)%!5.1f!</GaugeString>
+                    <Luminous>True</Luminous>
+                    <Size>80,13</Size>
+                    <Transparent>True</Transparent>
+                </GaugeText>
+            </Element>
+            <Element id="engine1 ff">
+                <FloatPosition>18.000,195.000</FloatPosition>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>0x01E00D</FontColor>
+                    <FontHeight>12</FontHeight>
+                    <GaugeString>%((A:Turb eng1 fuel flow pph, pounds per hour) 0.4536 *)%!5d!</GaugeString>
+                    <Luminous>True</Luminous>
+                    <Size>80,13</Size>
+                    <Transparent>True</Transparent>
+                </GaugeText>
+            </Element>
+            <Element id="engine2 ff">
+                <FloatPosition>114.000,195.000</FloatPosition>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>0x01E00D</FontColor>
+                    <FontHeight>12</FontHeight>
+                    <GaugeString>%((A:Turb eng2 fuel flow pph, pounds per hour) 0.4536 *)%!5d!</GaugeString>
+                    <Luminous>True</Luminous>
+                    <Size>80,13</Size>
+                    <Transparent>True</Transparent>
+                </GaugeText>
+            </Element>
+            <Element id="Fuel on board">
+                <FloatPosition>212.000,100.000</FloatPosition>
+                <GaugeText id="GaugeText">
+                    <Bold>True</Bold>
+                    <Bright>True</Bright>
+                    <FontColor>0x01E00D</FontColor>
+                    <FontHeight>12</FontHeight>
+                    <GaugeString>%((A:Fuel left quantity, gallons) (A:Fuel tank center quantity, gallons) + (A:Fuel right quantity, gallons) + (A:Fuel weight per gallon, pounds) *  0.4536 * )%!5d!</GaugeString>
+                    <Luminous>True</Luminous>
+                    <Size>80,13</Size>
+                    <Transparent>True</Transparent>
+                </GaugeText>
+            </Element>
+            <Element id="Flaps">
+                <FloatPosition>164.000,143.000</FloatPosition>
+                <Select id="Select">
+                    <Expression id="Expression">
+                        <Minimum>0.000</Minimum>
+                        <Maximum>40.000</Maximum>
+                        <Script>
+
+(A:Trailing edge flaps0 left angle, degrees) (A:Trailing edge flaps0 right angle, degrees) (A:Trailing edge flaps1 left angle, degrees) (A:Trailing edge flaps1 right angle, degrees) max max max near
+                    		s0
+							l0 40 &gt;= if{ 5 g0 }
+							l0 20 &gt;= if{ 4 g0 }
+							l0 15 &gt;= if{ 3 g0 }
+							l0 10 &gt;= if{ 2 g0 }
+							1 (* always display something *)
+							:0</Script>
+                    </Expression>
+                    <Case id="Case">
+                        <ExpressionResult>1.000</ExpressionResult>
+                        <Image id="ecams_engine_primary_slats_flaps_1.bmp" Name="ecams_engine_primary_slats_flaps_1.bmp">
+                            <Transparent>True</Transparent>
+                            <Bright>True</Bright>
+                            <Luminous>True</Luminous>
+                        </Image>
+                    </Case>
+                    <Case id="Case">
+                        <ExpressionResult>2.000</ExpressionResult>
+                        <Image id="ecams_engine_primary_slats_flaps_2.bmp" Name="ecams_engine_primary_slats_flaps_2.bmp">
+                            <Transparent>True</Transparent>
+                            <Bright>True</Bright>
+                            <Luminous>True</Luminous>
+                        </Image>
+                    </Case>
+                    <Case id="Case">
+                        <ExpressionResult>3.000</ExpressionResult>
+                        <Image id="ecams_engine_primary_slats_flaps_3.bmp" Name="ecams_engine_primary_slats_flaps_3.bmp">
+                            <Transparent>True</Transparent>
+                        </Image>
+                    </Case>
+                    <Case id="Case">
+                        <ExpressionResult>4.000</ExpressionResult>
+                        <Image id="ecams_engine_primary_slats_flaps_4.bmp" Name="ecams_engine_primary_slats_flaps_4.bmp">
+                            <Transparent>True</Transparent>
+                            <Bright>True</Bright>
+                            <Luminous>True</Luminous>
+                        </Image>
+                    </Case>
+                    <Case id="Case">
+                        <ExpressionResult>5.000</ExpressionResult>
+                        <Image id="ecams_engine_primary_slats_flaps_5.bmp" Name="ecams_engine_primary_slats_flaps_5.bmp">
+                            <Transparent>True</Transparent>
+                            <Bright>True</Bright>
+                            <Luminous>True</Luminous>
+                        </Image>
+                    </Case>
+                </Select>
+            </Element>
+            <Element id="Flaps num">
+                <FloatPosition>0.000,0.000</FloatPosition>
+                <Element id="flap 1">
+                    <FloatPosition>210.000,176.000</FloatPosition>
+                    <Visibility>(A:FLAPS HANDLE INDEX,number) 1 ==</Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bright>True</Bright>
+                        <FontHeight>18</FontHeight>
+                        <GaugeString>1</GaugeString>
+                        <Size>80,19</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                </Element>
+                <Element id="flap 1+f">
+                    <FloatPosition>199.000,176.000</FloatPosition>
+                    <Visibility>(A:FLAPS HANDLE INDEX,number) 2 ==</Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bright>True</Bright>
+                        <FontHeight>18</FontHeight>
+                        <GaugeString>1+F</GaugeString>
+                        <Size>80,19</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                </Element>
+                <Element id="flap 2">
+                    <FloatPosition>209.000,176.000</FloatPosition>
+                    <Visibility>(A:FLAPS HANDLE INDEX,number) 3 ==</Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bright>True</Bright>
+                        <FontHeight>18</FontHeight>
+                        <GaugeString>2</GaugeString>
+                        <Size>80,19</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                </Element>
+                <Element id="flap 3">
+                    <FloatPosition>209.000,176.000</FloatPosition>
+                    <Visibility>(A:FLAPS HANDLE INDEX,number) 4 ==</Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bright>True</Bright>
+                        <FontHeight>18</FontHeight>
+                        <GaugeString>3</GaugeString>
+                        <Size>80,19</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                </Element>
+                <Element id="flap full">
+                    <FloatPosition>197.000,176.000</FloatPosition>
+                    <Visibility>(A:FLAPS HANDLE INDEX,number) 5 ==</Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bright>True</Bright>
+                        <FontHeight>16</FontHeight>
+                        <GaugeString>FULL</GaugeString>
+                        <Size>80,19</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                </Element>
+            </Element>
+            <Element id="ECAM messages">
+                <FloatPosition>0.000,0.000</FloatPosition>
+                <Element id="APU bleed">
+                    <FloatPosition>170.000,223.000</FloatPosition>
+                    <Visibility>(A:APU PCT RPM,percent) 96 &gt; (A:BLEED AIR SOURCE CONTROL,enum) 2 == &amp;&amp;</Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bold>True</Bold>
+                        <Bright>True</Bright>
+                        <FontColor>0x01E00D</FontColor>
+                        <FontHeight>9</FontHeight>
+                        <GaugeString>APU BLEED</GaugeString>
+                        <Size>80,13</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:BRAKE PARKING INDICATOR,bool) 1 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FUEL CROSS FEED,enum) 1 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                </Element>
+                <Element id="Landing Lights">
+                    <FloatPosition>170.000,223.000</FloatPosition>
+                    <Visibility>(A:LIGHT LANDING,bool) 1 == (L:allmsgsecam,enum) 5 &lt; &amp;&amp; </Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bold>True</Bold>
+                        <Bright>True</Bright>
+                        <FontColor>0x01E00D</FontColor>
+                        <FontHeight>9</FontHeight>
+                        <GaugeString>LDG LT</GaugeString>
+                        <Size>90,13</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:BRAKE PARKING INDICATOR,bool) 1 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:APU PCT RPM,percent) 96 &gt;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FUEL CROSS FEED,enum) 1 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>1.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                </Element>
+                <Element id="IGNITION">
+                    <FloatPosition>170.000,233.000</FloatPosition>
+                    <Visibility>(A:TURB ENG IGNITION SWITCH:1,bool) 1 == (L:allmsgsecam,enum) 5 &lt; &amp;&amp; </Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bold>True</Bold>
+                        <Bright>True</Bright>
+                        <FontColor>0x01E00D</FontColor>
+                        <FontHeight>9</FontHeight>
+                        <GaugeString>IGNITION</GaugeString>
+                        <Luminous>True</Luminous>
+                        <Size>80,13</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:LIGHT LANDING,bool) 1 == (L:allmsgsecam,enum) 5 &lt; &amp;&amp; </Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:BRAKE PARKING INDICATOR,bool) 1 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FUEL CROSS FEED,enum) 1 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,-10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:APU PCT RPM,percent) 96 &lt;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                </Element>
+                <Element id="PARK BRK">
+                    <FloatPosition>170.000,223.000</FloatPosition>
+                    <Visibility>(A:BRAKE PARKING INDICATOR,bool) 1 ==</Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bold>True</Bold>
+                        <Bright>True</Bright>
+                        <FontColor>0x01E00D</FontColor>
+                        <FontHeight>9</FontHeight>
+                        <GaugeString>PARK BRK</GaugeString>
+                        <Size>80,13</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                </Element>
+                <Element id="APU AVAIL">
+                    <FloatPosition>170.000,223.000</FloatPosition>
+                    <Visibility>(A:APU PCT RPM,percent) 96 &gt; (A:BLEED AIR SOURCE CONTROL,enum) 2 != &amp;&amp;</Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bold>True</Bold>
+                        <Bright>True</Bright>
+                        <FontColor>0x01E00D</FontColor>
+                        <FontHeight>9</FontHeight>
+                        <GaugeString>APU AVAIL</GaugeString>
+                        <Luminous>True</Luminous>
+                        <Size>80,13</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:BRAKE PARKING INDICATOR,bool) 1 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FUEL CROSS FEED,enum) 1 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                </Element>
+                <Element id="Ldg inhibit">
+                    <FloatPosition>170.000,223.000</FloatPosition>
+                    <Visibility>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bold>True</Bold>
+                        <Bright>True</Bright>
+                        <FontColor>0xff33fd</FontColor>
+                        <FontHeight>9</FontHeight>
+                        <GaugeString>LDG INHIBIT</GaugeString>
+                        <Size>80,13</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                </Element>
+                <Element id="Engine A. Ice">
+                    <FloatPosition>170.000,233.000</FloatPosition>
+                    <Visibility>(A:GENERAL ENG ANTI ICE POSITION:1,bool) 1 == (A:GENERAL ENG ANTI ICE POSITION:2,bool) 1 == || (L:allmsgsecam,enum) 8 &lt; &amp;&amp; </Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bold>True</Bold>
+                        <Bright>True</Bright>
+                        <FontColor>0x01E00D</FontColor>
+                        <FontHeight>9</FontHeight>
+                        <GaugeString>ENG A. ICE</GaugeString>
+                        <Size>80,13</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:BRAKE PARKING INDICATOR,bool) 1 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:LIGHT LANDING,bool) 1 == (L:allmsgsecam,enum) 5 &lt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,200.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:BRAKE PARKING INDICATOR,bool) 1 == (A:APU PCT RPM,percent) 96 &gt; &amp;&amp; (A:FUEL CROSS FEED,enum) 1 == &amp;&amp; (A:TURB ENG IGNITION SWITCH:1,bool) 1 == &amp;&amp; (A:RADIO HEIGHT,feet) 2000 &lt; &amp;&amp; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp; </Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,-10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:APU PCT RPM,percent) 96 &lt;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FUEL CROSS FEED,enum) 1 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:TURB ENG IGNITION SWITCH:1,bool) 1 == (L:allmsgsecam) 5 &lt; &amp;&amp; </Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                </Element>
+                <Element id="FUEL X FEED">
+                    <FloatPosition>170.000,233.000</FloatPosition>
+                    <Visibility>(A:FUEL CROSS FEED,enum) 1 ==</Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bold>True</Bold>
+                        <Bright>True</Bright>
+                        <FontColor>0x01E00D</FontColor>
+                        <FontHeight>9</FontHeight>
+                        <GaugeString>FUEL X FEED</GaugeString>
+                        <Size>80,13</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                    <Shift id="Shift">
+                        <Scale>0.000,-10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:BRAKE PARKING INDICATOR,bool) 0 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                </Element>
+                <Element id="AUTO BRK LO">
+                    <FloatPosition>170.000,223.000</FloatPosition>
+                    <Visibility>(A:AUTO BRAKE SWITCH CB,enum) 2 == </Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bold>True</Bold>
+                        <Bright>True</Bright>
+                        <FontColor>0x01E00D</FontColor>
+                        <FontHeight>9</FontHeight>
+                        <GaugeString>AUTO BRK LO</GaugeString>
+                        <Size>80,13</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:Structural Deice Switch,bool) 1 == (L:allmsgsecam,enum) 6 &lt; &amp;&amp; </Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:LIGHT LANDING,bool) 1 == (L:allmsgsecam,enum) 5 &lt; &amp;&amp; </Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,-10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(L:allmsgsecam,enum) 7 &gt; </Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:GENERAL ENG ANTI ICE POSITION:1,bool) 1 == (A:GENERAL ENG ANTI ICE POSITION:2,bool) 1 == ||</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:APU PCT RPM,percent) 96 &gt;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:BRAKE PARKING INDICATOR,bool) 1 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FUEL CROSS FEED,enum) 1 == </Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:TURB ENG IGNITION SWITCH:1,bool) 1 == (L:allmsgsecam,enum) 5 &lt; &amp;&amp; </Script>
+                        </Expression>
+                    </Shift>
+                </Element>
+                <Element id="AUTO BRK MED">
+                    <FloatPosition>170.000,223.000</FloatPosition>
+                    <Visibility>(A:AUTO BRAKE SWITCH CB,enum) 3 == </Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bold>True</Bold>
+                        <Bright>True</Bright>
+                        <FontColor>0x01E00D</FontColor>
+                        <FontHeight>9</FontHeight>
+                        <GaugeString>AUTO BRK MED</GaugeString>
+                        <Size>80,13</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:Structural Deice Switch,bool) 1 == (L:allmsgsecam,enum) 6 &lt; &amp;&amp; </Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:LIGHT LANDING,bool) 1 == (L:allmsgsecam,enum) 5 &lt; &amp;&amp; </Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,-10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(L:allmsgsecam,enum) 7 &gt; </Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:GENERAL ENG ANTI ICE POSITION:1,bool) 1 == (A:GENERAL ENG ANTI ICE POSITION:2,bool) 1 == ||</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:APU PCT RPM,percent) 96 &gt;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:BRAKE PARKING INDICATOR,bool) 1 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FUEL CROSS FEED,enum) 1 == </Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:TURB ENG IGNITION SWITCH:1,bool) 1 == (L:allmsgsecam,enum) 5 &lt; &amp;&amp; </Script>
+                        </Expression>
+                    </Shift>
+                </Element>
+                <Element id="AUTO BRK MAX">
+                    <FloatPosition>170.000,223.000</FloatPosition>
+                    <Visibility>(A:AUTO BRAKE SWITCH CB,enum) 0 == (A:AUTO BRAKE SWITCH CB,enum) 4 == || </Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bold>True</Bold>
+                        <Bright>True</Bright>
+                        <FontColor>0x01E00D</FontColor>
+                        <FontHeight>9</FontHeight>
+                        <GaugeString>AUTO BRK MAX</GaugeString>
+                        <Size>80,13</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:Structural Deice Switch,bool) 1 == (L:allmsgsecam,enum) 6 &lt; &amp;&amp; </Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:LIGHT LANDING,bool) 1 == (L:allmsgsecam,enum) 5 &lt; &amp;&amp; </Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,-10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(L:allmsgsecam,enum) 7 &gt; </Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:GENERAL ENG ANTI ICE POSITION:1,bool) 1 == (A:GENERAL ENG ANTI ICE POSITION:2,bool) 1 == ||</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:APU PCT RPM,percent) 96 &gt;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:BRAKE PARKING INDICATOR,bool) 1 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FUEL CROSS FEED,enum) 1 == </Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:TURB ENG IGNITION SWITCH:1,bool) 1 == (L:allmsgsecam,enum) 5 &lt; &amp;&amp; </Script>
+                        </Expression>
+                    </Shift>
+                </Element>
+                <Element id="W.anti ice">
+                    <FloatPosition>170.000,223.000</FloatPosition>
+                    <Visibility>(A:Structural Deice Switch,bool) 1 == (L:allmsgsecam,enum) 6 &lt; &amp;&amp; </Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bold>True</Bold>
+                        <Bright>True</Bright>
+                        <FontColor>0x01E00D</FontColor>
+                        <FontHeight>9</FontHeight>
+                        <GaugeString>WING A.ICE</GaugeString>
+                        <Size>80,13</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:GENERAL ENG ANTI ICE POSITION:1,bool) 1 == (A:GENERAL ENG ANTI ICE POSITION:2,bool) 1 == ||</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:BRAKE PARKING INDICATOR,bool) 1 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:LIGHT LANDING,bool) 1 == (L:allmsgsecam,enum) 5 &lt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:APU PCT RPM,percent) 96 &gt;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:FUEL CROSS FEED,enum) 1 ==</Script>
+                        </Expression>
+                    </Shift>
+                    <Shift id="Shift">
+                        <Scale>0.000,10.000</Scale>
+                        <Expression id="Expression">
+                            <Script>(A:TURB ENG IGNITION SWITCH:1,bool) 1 == (L:allmsgsecam,enum) 5 &lt; &amp;&amp; </Script>
+                        </Expression>
+                    </Shift>
+                </Element>
+                <Element id="T.O. inhibit">
+                    <FloatPosition>170.000,223.000</FloatPosition>
+                    <Visibility>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Visibility>
+                    <GaugeText id="GaugeText">
+                        <Bold>True</Bold>
+                        <Bright>True</Bright>
+                        <FontColor>0xff33fd</FontColor>
+                        <FontHeight>9</FontHeight>
+                        <GaugeString>T.O. Inhibit</GaugeString>
+                        <Size>80,13</Size>
+                        <Transparent>True</Transparent>
+                    </GaugeText>
+                </Element>
+                <Element id="T.O.">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Visibility>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Visibility>
+                    <Element id="T.O.">
+                        <FloatPosition>10.000,223.000</FloatPosition>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>T.O.</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                            <Underline>True</Underline>
+                        </GaugeText>
+                    </Element>
+                    <Element id="FLAPS">
+                        <FloatPosition>40.000,253.000</FloatPosition>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>FLAPS</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="flaps not to">
+                        <FloatPosition>72.000,253.000</FloatPosition>
+                        <Visibility>(A:FLAPS HANDLE INDEX,number) 2 !=</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>aqua</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>...............T.O.</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="FLAPS T.O.">
+                        <FloatPosition>74.000,253.000</FloatPosition>
+                        <Visibility>(A:FLAPS HANDLE INDEX,number) 2 ==</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>T.O.</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="Seat belts">
+                        <FloatPosition>40.000,233.000</FloatPosition>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>SIGNS</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="Signs off">
+                        <FloatPosition>74.000,233.000</FloatPosition>
+                        <Visibility>(A:CABIN SEATBELTS ALERT SWITCH,bool) 0 == (A:CABIN NO SMOKING ALERT SWITCH,bool) 0 == ||</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>AQUA</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>..............ON</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="signs on">
+                        <FloatPosition>74.000,233.000</FloatPosition>
+                        <Visibility>(A:CABIN SEATBELTS ALERT SWITCH,bool) 1 == (A:CABIN NO SMOKING ALERT SWITCH,bool) 1 == &amp;&amp;</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>ON</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="spoilers">
+                        <FloatPosition>40.000,243.000</FloatPosition>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>SPLRS</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="splrs unarm">
+                        <FloatPosition>75.000,243.000</FloatPosition>
+                        <Visibility>(A:SPOILERS ARMED,bool) 0 ==</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>AQUA</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>.............ARM</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="splrs armed">
+                        <FloatPosition>75.000,243.000</FloatPosition>
+                        <Visibility>(A:SPOILERS ARMED,bool) 1 ==</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>ARM</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="auto brk">
+                        <FloatPosition>40.000,223.000</FloatPosition>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>AUTO BRK</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="ato brk off">
+                        <FloatPosition>89.000,223.000</FloatPosition>
+                        <Visibility>(A:AUTO BRAKE SWITCH CB,enum) 0 !=</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>AQUA</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>.....MAX</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="auto brk on">
+                        <FloatPosition>92.000,223.000</FloatPosition>
+                        <Visibility>(A:AUTO BRAKE SWITCH CB,enum) 0 ==</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>MAX</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="to config">
+                        <FloatPosition>40.000,263.000</FloatPosition>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>T.O. CONFIG</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="to not norm">
+                        <FloatPosition>99.000,263.000</FloatPosition>
+                        <Visibility>(A:CABIN SEATBELTS ALERT SWITCH,bool) 0 == (A:CABIN NO SMOKING ALERT SWITCH,bool) 0 == || (A:AUTO BRAKE SWITCH CB,enum) 0 != || (A:SPOILERS ARMED,bool) 0 == || (A:FLAPS HANDLE INDEX,number) 2 != ||</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>AQUA</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>.....TEST</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="to norm">
+                        <FloatPosition>102.000,263.000</FloatPosition>
+                        <Visibility>(A:FLAPS HANDLE INDEX,number) 2 == (A:CABIN SEATBELTS ALERT SWITCH,bool) 1 == &amp;&amp; (A:CABIN NO SMOKING ALERT SWITCH,bool) 1 == &amp;&amp; (A:AUTO BRAKE SWITCH CB,enum) 0 == &amp;&amp; (A:SPOILERS ARMED,bool) 1 == &amp;&amp;</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>NORMAL</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                </Element>
+                <Element id="Landing">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Visibility>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Visibility>
+                    <Element id="Landing">
+                        <FloatPosition>10.000,223.000</FloatPosition>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>LDG</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                            <Underline>True</Underline>
+                        </GaugeText>
+                    </Element>
+                    <Element id="LDG GEAR DN">
+                        <FloatPosition>40.000,223.000</FloatPosition>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>LDG GEAR DN</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="signs">
+                        <FloatPosition>40.000,234.000</FloatPosition>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>SIGNS</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="signs off">
+                        <FloatPosition>75.000,234.000</FloatPosition>
+                        <Visibility>(A:CABIN SEATBELTS ALERT SWITCH,bool) 0 == (A:CABIN NO SMOKING ALERT SWITCH,bool) 0 == ||</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>AQUA</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>...............ON</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="signs on">
+                        <FloatPosition>74.000,234.000</FloatPosition>
+                        <Visibility>(A:CABIN SEATBELTS ALERT SWITCH,bool) 1 == (A:CABIN NO SMOKING ALERT SWITCH,bool) 1 == &amp;&amp;</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>ON</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="splrs">
+                        <FloatPosition>40.000,245.000</FloatPosition>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>SPLRS</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="splrs unarm">
+                        <FloatPosition>73.000,245.000</FloatPosition>
+                        <Visibility>(A:SPOILERS ARMED,bool) 0 ==</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>AQUA</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>..............ARM</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="splrs arm">
+                        <FloatPosition>75.000,245.000</FloatPosition>
+                        <Visibility>(A:SPOILERS ARMED,bool) 1 ==</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>ARM</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="flaps">
+                        <FloatPosition>40.000,256.000</FloatPosition>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>FLAPS</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="flaps not full">
+                        <FloatPosition>75.000,256.000</FloatPosition>
+                        <Visibility>(A:FLAPS HANDLE INDEX,number) 4 != (A:FLAPS HANDLE INDEX,number) 5 != &amp;&amp;</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>AQUA</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>............FULL</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                    <Element id="flaps full">
+                        <FloatPosition>75.000,256.000</FloatPosition>
+                        <Visibility>(A:FLAPS HANDLE INDEX,number) 4 == (A:FLAPS HANDLE INDEX,number) 5 == ||</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>FULL</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                    </Element>
+                </Element>
+                <Element id="ECAM messages 2">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Element id="SEAT BELTS">
+                        <FloatPosition>12.000,225.000</FloatPosition>
+                        <Visibility>(A:CABIN SEATBELTS ALERT SWITCH,bool) 1 == (L:allmsgsecam2,enum) 5 &lt; &amp;&amp; </Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>SEAT BELTS</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:lowfuel,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:tlg,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:landasap,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                    </Element>
+                    <Element id="NO SMOKING">
+                        <FloatPosition>12.000,225.000</FloatPosition>
+                        <Visibility>(A:CABIN NO SMOKING ALERT SWITCH,bool) 1 == (L:allmsgsecam2,enum) 5 &lt; &amp;&amp; </Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>NO SMOKING</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:CABIN SEATBELTS ALERT SWITCH,bool) 1 ==</Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:lowfuel,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:tlg,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:landasap,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                    </Element>
+                    <Element id="STROBE LT OFF">
+                        <FloatPosition>12.000,225.000</FloatPosition>
+                        <Visibility>(A:LIGHT STROBE,bool) 0 == </Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>ORANGE</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>STROBE LT OFF</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:CABIN SEATBELTS ALERT SWITCH,bool) 1 == (L:allmsgsecam2,enum) 5 &lt; &amp;&amp; </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:tlg,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:lowfuel,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:landasap,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:CABIN NO SMOKING ALERT SWITCH,bool) 1 == (L:allmsgsecam2,enum) 5 &lt; &amp;&amp; </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:SPOILERS HANDLE POSITION, percent) 0 &gt; (A:SPOILERS ARMED,bool) 1 == || </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                    </Element>
+                    <Element id="SPEED BRK">
+                        <FloatPosition>12.000,225.000</FloatPosition>
+                        <Visibility>(A:SPOILERS HANDLE POSITION, percent) 0 &gt; (A:SPOILERS ARMED,bool) 0 == &amp;&amp; </Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>SPEED BRK</GaugeString>
+                            <Size>80,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:CABIN SEATBELTS ALERT SWITCH,bool) 1 == (L:allmsgsecam2,enum) 5 &lt; &amp;&amp; </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:CABIN NO SMOKING ALERT SWITCH,bool) 1 == (L:allmsgsecam2,enum) 5 &lt; &amp;&amp; </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:tlg,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:lowfuel,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:landasap,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                    </Element>
+                    <Element id=" GND SPLRS ARMED">
+                        <FloatPosition>12.000,225.000</FloatPosition>
+                        <Visibility>(A:SPOILERS ARMED,bool) 1 == </Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>0x01E00D</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>GND SPLRS ARMED</GaugeString>
+                            <Size>93,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:CABIN SEATBELTS ALERT SWITCH,bool) 1 == (L:allmsgsecam2,enum) 5 &lt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:tlg,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:lowfuel,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:landasap,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:CABIN NO SMOKING ALERT SWITCH,bool) 1 == (L:allmsgsecam2,enum) 5 &lt; &amp;&amp; </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                    </Element>
+                    <Element id=" LDG GEAR DN">
+                        <FloatPosition>12.000,225.000</FloatPosition>
+                        <Visibility>(A:GEAR HANDLE POSITION,bool) 1 == (A:Radio height,feet) 200 &gt; &amp;&amp; </Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>orange</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>LDG GEAR DN</GaugeString>
+                            <Size>87,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:CABIN SEATBELTS ALERT SWITCH,bool) 1 == (L:allmsgsecam2,enum) 5 &lt; &amp;&amp; </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:SPOILERS HANDLE POSITION, percent) 0 &gt; (A:SPOILERS ARMED,bool) 1 == || </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:CABIN NO SMOKING ALERT SWITCH,bool) 1 == (L:allmsgsecam2,enum) 5 &lt; &amp;&amp; </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:LIGHT STROBE,bool) 0 ==</Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:lowfuel,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script> (L:landasap,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                    </Element>
+                    <Element id=" TOO LOW - GEAR">
+                        <FloatPosition>12.000,225.000</FloatPosition>
+                        <Visibility>(A:GEAR HANDLE POSITION,bool) 0 == (A:Radio height,feet) 300 &lt; (A:VERTICAL SPEED,feet per minute) -50 &lt; &amp;&amp;</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>red</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>TOO LOW - GEAR</GaugeString>
+                            <Size>87,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                    </Element>
+                    <Element id=" LOW FUEL">
+                        <FloatPosition>12.000,225.000</FloatPosition>
+                        <Visibility>(A:FUEL TOTAL QUANTITY,gallons) 640 &lt;</Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>red</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>LOW FUEL</GaugeString>
+                            <Size>87,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:GEAR HANDLE POSITION,bool) 0 == (A:Radio height,feet) 300 &lt; (A:VERTICAL SPEED,feet per minute) -50 &lt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                    </Element>
+                    <Element id=" LAND ASAP">
+                        <FloatPosition>12.000,225.000</FloatPosition>
+                        <Visibility>(A:FUEL TOTAL QUANTITY,gallons) 320 &lt; (A:Turb eng1 N1, percent) 2.0 &lt; || (A:Turb eng2 N1, percent) 2.0 &lt; || (A:RADIO HEIGHT,feet) 13 &gt; &amp;&amp; </Visibility>
+                        <GaugeText id="GaugeText">
+                            <Bold>True</Bold>
+                            <Bright>True</Bright>
+                            <FontColor>red</FontColor>
+                            <FontHeight>9</FontHeight>
+                            <GaugeString>LAND ASAP</GaugeString>
+                            <Size>87,13</Size>
+                            <Transparent>True</Transparent>
+                        </GaugeText>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(L:tlg,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>0.000,10.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(L:lowfuel,bool) 1 == </Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                        <Shift id="Shift">
+                            <Scale>1.000,200.000</Scale>
+                            <Expression id="Expression">
+                                <Script>(A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp;</Script>
+                            </Expression>
+                        </Shift>
+                    </Element>
+                </Element>
+            </Element>
+            <Element id="engine shutdown 1">
+                <FloatPosition>0.500,7.000</FloatPosition>
+                <Visibility>(A:Turb eng1 N1, percent) 0.1 &lt;</Visibility>
+                <Image id="engine_shutdown.bmp" Name="engine_shutdown.bmp">
+                    <Transparent>True</Transparent>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+            </Element>
+            <Element id="engine shutdown 2">
+                <FloatPosition>90.000,7.000</FloatPosition>
+                <Visibility>(A:Turb eng2 N1, percent) 0.1 &lt;</Visibility>
+                <Image id="engine_shutdown.bmp" Name="engine_shutdown.bmp">
+                    <Transparent>True</Transparent>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+            </Element>
+            <Element id="egt shutdown 1">
+                <FloatPosition>0.500,70.000</FloatPosition>
+                <Visibility>(A:General eng1 exhaust gas temperature, celsius) 50 &lt;</Visibility>
+                <Image id="engine_shutdown.bmp" Name="engine_shutdown.bmp">
+                    <Transparent>True</Transparent>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+            </Element>
+            <Element id="egt shutdown 2">
+                <FloatPosition>90.000,70.000</FloatPosition>
+                <Visibility>(A:General eng2 exhaust gas temperature, celsius) 50 &lt;</Visibility>
+                <Image id="engine_shutdown.bmp" Name="engine_shutdown.bmp">
+                    <Transparent>True</Transparent>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+            </Element>
+            <Element id="engine1 xx">
+                <FloatPosition>42.000,55.000</FloatPosition>
+                <Visibility>(A:Turb eng1 N1, percent) 0.1 &lt;</Visibility>
+                <Image id="ecams_engine_primary_text_xx.bmp" Name="ecams_engine_primary_text_xx.bmp">
+                    <Transparent>True</Transparent>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+            </Element>
+            <Element id="engine 2 xx">
+                <FloatPosition>130.000,55.000</FloatPosition>
+                <Visibility>(A:Turb eng2 N1, percent) 0.1 &lt; </Visibility>
+                <Image id="ecams_engine_primary_text_xx.bmp" Name="ecams_engine_primary_text_xx.bmp">
+                    <Transparent>True</Transparent>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+            </Element>
+            <Element id="egt 1">
+                <FloatPosition>40.000,112.000</FloatPosition>
+                <Visibility>(A:General eng1 exhaust gas temperature, celsius) 72 &lt;</Visibility>
+                <Image id="ecams_engine_primary_text_xx.bmp" Name="ecams_engine_primary_text_xx.bmp">
+                    <Transparent>True</Transparent>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+            </Element>
+            <Element id="egt 2">
+                <FloatPosition>127.000,112.000</FloatPosition>
+                <Visibility>(A:General eng2 exhaust gas temperature, celsius) 72 &lt;</Visibility>
+                <Image id="ecams_engine_primary_text_xx.bmp" Name="ecams_engine_primary_text_xx.bmp">
+                    <Transparent>True</Transparent>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+            </Element>
+            <Element id="1n2 xx">
+                <FloatPosition>30.000,161.000</FloatPosition>
+                <Visibility>(A:Turb eng1 N2, percent) 3 &lt;</Visibility>
+                <Image id="Image" Name="ecams_engine_primary_text_xx">
+                    <Transparent>True</Transparent>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+            </Element>
+            <Element id="2n2 xx">
+                <FloatPosition>115.000,163.000</FloatPosition>
+                <Visibility>(A:Turb eng2 N2, percent) 3 &lt;</Visibility>
+                <Image id="ecams_engine_primary_text_xx.bmp" Name="ecams_engine_primary_text_xx.bmp">
+                    <Transparent>True</Transparent>
+                    <Bright>True</Bright>
+                    <Luminous>True</Luminous>
+                </Image>
+            </Element>
+        </Element>
+        <Update id="Autothrottle">
+            <Frequency>50</Frequency>
+            <Script>
+                    (A:FUEL TOTAL QUANTITY,gallons) 640 &lt; if{ 1 (&gt;L:lowfuel,bool) }
+                    (A:FUEL TOTAL QUANTITY,gallons) 640 &gt; if{ 0 (&gt;L:lowfuel,bool) }
+                    (A:GEAR HANDLE POSITION,bool) 0 == (A:Radio height,feet) 300 &lt; &amp;&amp; (A:VERTICAL SPEED,feet per minute) -50 &lt; &amp;&amp; if{ 1 (&gt;L:tlg,bool) }
+                    (A:VERTICAL SPEED,feet per minute) -50 &gt; if{ 0 (&gt;L:tlg,bool) }
+                    (A:FUEL TOTAL QUANTITY,gallons) 320 &lt; || (A:Turb eng1 N1, percent) 2.0 &lt; || (A:Turb eng2 N1, percent) 2.0 &lt; || (A:RADIO HEIGHT,feet) 20 &gt; &amp;&amp; if{ 1 (&gt;L:landasap,bool) } els{ 0 (&gt;L:landasap,bool) }
+                    (A:RADIO HEIGHT,feet) 20 &lt; if{ 0 (&gt;L:landasap,bool) }
+                     0 (&gt;L:allmsgsecam2,enum)
+                    (A:CABIN NO SMOKING ALERT SWITCH,bool) 1 == if{ (L:allmsgsecam2,enum) ++ (&gt;L:allmsgsecam2,enum) }
+                    (A:CABIN SEATBELTS ALERT SWITCH,bool) 1 == if{ (L:allmsgsecam2,enum) ++ (&gt;L:allmsgsecam2,enum) }
+                    (A:SPOILERS HANDLE POSITION, percent) 0 &gt; if{ (L:allmsgsecam2,enum) ++ (&gt;L:allmsgsecam2,enum) }
+                    (A:LIGHT STROBE,bool) 0 == if{ (L:allmsgsecam2,enum) ++ (&gt;L:allmsgsecam2,enum) }
+                    (A:GEAR HANDLE POSITION,bool) 1 == (A:Radio height,feet) 13 &gt; &amp;&amp; if{ (L:allmsgsecam2,enum) ++ (&gt;L:allmsgsecam2,enum) }
+                    (L:tlg,bool) 1 == if{ ( L:allmsgsecam2,enum) ++ (&gt;L:allmsgsecam2,enum) }
+                    (L:landasap,bool) 1 == if{ (L:allmsgsecam2,enum) ++ (&gt;L:allmsgsecam2,enum) }
+                    (L:lowfuel,bool) 1 == if{ (L:allmsgsecam2,enum) ++ (&gt;L:allmsgsecam2,enum) }
+                     0 (&gt;L:allmsgsecam,enum)
+                    (A:APU PCT RPM,percent) 96 &gt; if{ ( L:allmsgsecam,enum) ++ (&gt;L:allmsgsecam,enum) }
+                    (A:LIGHT LANDING,bool) 1 == if{ ( L:allmsgsecam,enum) ++ (&gt;L:allmsgsecam,enum) }
+                    (A:TURB ENG IGNITION SWITCH:1,bool) 1 == if{ ( L:allmsgsecam,enum) ++ (&gt;L:allmsgsecam,enum) }
+                    (A:BRAKE PARKING INDICATOR,bool) 1 == if{ ( L:allmsgsecam,enum) ++ (&gt;L:allmsgsecam,enum) }
+                    (A:RADIO HEIGHT,feet) 2000 &lt; (A:GEAR HANDLE POSITION,bool) 1 == &amp;&amp; (A:VERTICAL SPEED,feet per minute) -100 &lt; &amp;&amp; if{ ( L:allmsgsecam,enum) ++ (&gt;L:allmsgsecam,enum) }
+                    (A:GENERAL ENG ANTI ICE POSITION:1,bool) 1 == (A:GENERAL ENG ANTI ICE POSITION:2,bool) 1 == || if{ ( L:allmsgsecam,enum) ++ (&gt;L:allmsgsecam,enum) }
+                    (A:FUEL CROSS FEED,enum) 1 == if{ ( L:allmsgsecam,enum) ++ (&gt;L:allmsgsecam,enum) }
+                    (A:AUTO BRAKE SWITCH CB,enum) 2 == || (A:AUTO BRAKE SWITCH CB,enum) 3 == || (A:AUTO BRAKE SWITCH CB,enum) 4 == || (A:AUTO BRAKE SWITCH CB,enum) 0 == || if{ ( L:allmsgsecam,enum) ++ (&gt;L:allmsgsecam,enum) }
+                    (A:FLAPS HANDLE INDEX,number) 0 &gt; (A:Radio height,feet) 13 &lt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp; (A:ACCELERATION BODY Z, feet per second squared) -1.5 &gt; &amp;&amp; if{ (L:allmsgsecam,enum) ++ (&gt;L:allmsgsecam,enum) }
+                    (A:GENERAL ENG1 THROTTLE LEVER POSITION,percent) 82.1 &gt; if{ 1 (&gt;L:thr1detent,enum) }
+                    (A:GENERAL ENG1 THROTTLE LEVER POSITION,percent) 92.0 &gt; if{ 2 (&gt;L:thr1detent,enum) }
+                    (A:GENERAL ENG1 THROTTLE LEVER POSITION,percent) 98.0 &gt; if{ 3 (&gt;L:thr1detent,enum) }
+                    (A:GENERAL ENG1 THROTTLE LEVER POSITION,percent) 61.0 &lt; if{ 0 (&gt;L:thr1detent,enum) }
+                    (A:GENERAL ENG2 THROTTLE LEVER POSITION,percent) 82.1 &gt; if{ 1 (&gt;L:thr2detent,enum) }
+                    (A:GENERAL ENG2 THROTTLE LEVER POSITION,percent) 92.0 &gt; if{ 2 (&gt;L:thr2detent,enum) }
+                    (A:GENERAL ENG2 THROTTLE LEVER POSITION,percent) 98.0 &gt; if{ 3 (&gt;L:thr2detent,enum) }
+                    (A:GENERAL ENG2 THROTTLE LEVER POSITION,percent) 61.0 &lt; if{ 0 (&gt;L:thr2detent,enum) }
+
+            </Script>
+        </Update>
+        <Comment id="Comment">
+            <Value>COPYRIGHT Gary Galea &#xA9; </Value>
+        </Comment>
+    </SimGauge.Gauge>
+</SimBase.Document>
