@@ -6,7 +6,7 @@
         id="Fuel Pressure Gauge">
     <Descr>AceXML Document</Descr>
     <Filename>rudderlock.xml</Filename>
-    <SimGauge.Gauge id="Gauge" ArtDirectory="C:\Users\Gary\Documents\New Gauges\newgauges\A321">
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
         <FloatPosition>0.000,0.000</FloatPosition>
         <Size>256,256</Size>
         <Element id="Element">
