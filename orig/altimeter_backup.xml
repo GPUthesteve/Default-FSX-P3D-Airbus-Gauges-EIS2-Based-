@@ -1,0 +1,258 @@
+<SimBase.Document Type="AceXML" version="1,0" id="altimeter_backup">
+    <Descr>AceXML Document</Descr>
+    <Filename>altimeter_backup.xml</Filename>
+    <SimGauge.Gauge id="altimeter_backup" ArtDirectory="%INETROOT%\private\fs\src\gauges\Airbus_A321\objh\i386">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>79,77</Size>
+        <Element id="Background">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Image id="altimeter_backup_background.bmp" Name="altimeter_backup_background.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="Kohlsman 1000">
+            <FloatPosition>29.000,57.000</FloatPosition>
+            <Image id="altimeter_backup_kohlsman_number_strip_1.bmp" Name="altimeter_backup_kohlsman_number_strip_1.bmp">
+                <Transparent>True</Transparent>
+                <Axis>0.000,84.000</Axis>
+            </Image>
+            <MaskImage id="altimeter_backup_kohlsman_number_strip_mask.bmp" Name="altimeter_backup_kohlsman_number_strip_mask.bmp">
+            </MaskImage>
+            <Shift id="Shift">
+                <Scale>0.000,7.500</Scale>
+                <Expression id="Expression">
+                    <Script>(A:Kohlsman setting hg:2,inHg) 10 / flr</Script>
+                </Expression>
+            </Shift>
+        </Element>
+        <Element id="Kohlsman 100">
+            <FloatPosition>29.000,57.000</FloatPosition>
+            <Image id="altimeter_backup_kohlsman_number_strip_2.bmp" Name="altimeter_backup_kohlsman_number_strip_2.bmp">
+                <Transparent>True</Transparent>
+                <Axis>0.000,84.000</Axis>
+            </Image>
+            <MaskImage id="altimeter_backup_kohlsman_number_strip_mask.bmp" Name="altimeter_backup_kohlsman_number_strip_mask.bmp">
+                <Axis>5.000,0.000</Axis>
+            </MaskImage>
+            <Shift id="Shift">
+                <Scale>0.000,7.500</Scale>
+                <Expression id="Expression">
+                    <Script>(A:Kohlsman setting hg:2,inHg) 10 % flr</Script>
+                </Expression>
+            </Shift>
+        </Element>
+        <Element id="Kohlsman 10">
+            <FloatPosition>29.000,57.000</FloatPosition>
+            <Image id="altimeter_backup_kohlsman_number_strip_3.bmp" Name="altimeter_backup_kohlsman_number_strip_3.bmp">
+                <Transparent>True</Transparent>
+                <Axis>0.000,84.000</Axis>
+            </Image>
+            <MaskImage id="altimeter_backup_kohlsman_number_strip_mask.bmp" Name="altimeter_backup_kohlsman_number_strip_mask.bmp">
+                <Axis>10.000,0.000</Axis>
+            </MaskImage>
+            <Shift id="Shift">
+                <Scale>0.000,7.500</Scale>
+                <Expression id="Expression">
+                    <Script>(A:Kohlsman setting hg:2,inHg) 10 * 10 % flr</Script>
+                </Expression>
+            </Shift>
+        </Element>
+        <Element id="Kohlsman 1">
+            <FloatPosition>29.000,57.000</FloatPosition>
+            <Image id="altimeter_backup_kohlsman_number_strip_4.bmp" Name="altimeter_backup_kohlsman_number_strip_4.bmp">
+                <Transparent>True</Transparent>
+                <Axis>0.000,84.000</Axis>
+            </Image>
+            <MaskImage id="altimeter_backup_kohlsman_number_strip_mask.bmp" Name="altimeter_backup_kohlsman_number_strip_mask.bmp">
+                <Axis>15.000,0.000</Axis>
+            </MaskImage>
+            <Shift id="Shift">
+                <Scale>0.000,7.500</Scale>
+                <Expression id="Expression">
+                    <Script>(A:Kohlsman setting hg:2,inHg) 100 * 10 % flr</Script>
+                </Expression>
+            </Shift>
+        </Element>
+        <Element id="Ten Thousands">
+            <FloatPosition>19.000,22.000</FloatPosition>
+            <Image id="altimeter_backup_altitude_number_strip_2.bmp" Name="altimeter_backup_altitude_number_strip_2.bmp">
+                <Transparent>True</Transparent>
+                <Axis>0.000,121.000</Axis>
+            </Image>
+            <MaskImage id="altimeter_backup_altitude_number_strip_mask.bmp" Name="altimeter_backup_altitude_number_strip_mask.bmp">
+                <Axis>1.000,10.000</Axis>
+            </MaskImage>
+            <Shift id="Shift">
+                <Scale>0.000,1.000</Scale>
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>100000.000</Maximum>
+                    <Script>(P:Units of measure, enum) 2 == if{ (A:Indicated Altitude:2, meters) } els{ (A:Indicated Altitude:2, feet) } 10000 / flr 10.1 *</Script>
+                </Expression>
+                <FailureTable id="FailureTable">
+                    <Failure id="Failure">
+                    </Failure>
+                </FailureTable>
+                <Delay id="Delay">
+                    <DelayValue>100.000</DelayValue>
+                </Delay>
+            </Shift>
+        </Element>
+        <Element id="Thousands">
+            <FloatPosition>19.000,22.000</FloatPosition>
+            <Image id="altimeter_backup_altitude_number_strip_1.bmp" Name="altimeter_backup_altitude_number_strip_1.bmp">
+                <Transparent>True</Transparent>
+                <Axis>0.000,121.000</Axis>
+            </Image>
+            <MaskImage id="altimeter_backup_altitude_number_strip_mask.bmp" Name="altimeter_backup_altitude_number_strip_mask.bmp">
+                <Axis>10.000,10.000</Axis>
+            </MaskImage>
+            <Shift id="Shift">
+                <Scale>0.000,1.000</Scale>
+                <WrapMax>0.000,102.300</WrapMax>
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>10000.000</Maximum>
+                    <Script>(P:Units of measure, enum) 2 == if{ (A:Indicated Altitude:2, meters) } els{ (A:Indicated Altitude:2, feet) } 1000 / flr 10.23 * </Script>
+                </Expression>
+                <FailureTable id="FailureTable">
+                    <Failure id="Failure">
+                    </Failure>
+                </FailureTable>
+                <Delay id="Delay">
+                    <DelayValue>100.000</DelayValue>
+                </Delay>
+            </Shift>
+        </Element>
+        <Element id="Altimeter Needle">
+            <FloatPosition>39.429,39.714</FloatPosition>
+            <Image id="altimeter_backup_needle.bmp" Name="altimeter_backup_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>3.429,33.714</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>NORTH</PointsTo>
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1000.000</Maximum>
+                    <Script>(P:Units of measure, enum) 2 == if{ (A:Indicated Altitude:2, meters) } els{ (A:Indicated Altitude:2, feet) } 1000 %</Script>
+                </Expression>
+                <FailureTable id="FailureTable">
+                    <Failure id="Pitot-Static">
+                        <Fail_Key>SYSTEM_PITOT_STATIC</Fail_Key>
+                        <Fail_Action>Freeze</Fail_Action>
+                    </Failure>
+                </FailureTable>
+                <NonlinearityTable id="NonlinearityTable">
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>0.000</ExpressionResult>
+                        <FloatPosition>39.000,7.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>100.000</ExpressionResult>
+                        <FloatPosition>57.000,13.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>200.000</ExpressionResult>
+                        <FloatPosition>70.000,30.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>300.000</ExpressionResult>
+                        <FloatPosition>69.000,49.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>400.000</ExpressionResult>
+                        <FloatPosition>57.000,65.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>500.000</ExpressionResult>
+                        <FloatPosition>39.000,72.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>600.000</ExpressionResult>
+                        <FloatPosition>20.000,66.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>700.000</ExpressionResult>
+                        <FloatPosition>8.000,49.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>800.000</ExpressionResult>
+                        <FloatPosition>8.000,30.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>900.000</ExpressionResult>
+                        <FloatPosition>20.000,14.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>1000.000</ExpressionResult>
+                        <FloatPosition>39.000,7.000</FloatPosition>
+                    </NonlinearityEntry>
+                </NonlinearityTable>
+            </Rotation>
+        </Element>
+        <Element id="Shadow">
+            <FloatPosition>0.000,-20.000</FloatPosition>
+            <Image id="altimeter_backup_shadow.bmp" Alpha="True" Name="altimeter_backup_shadow.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="Kohlsman Knob">
+            <FloatPosition>6.000,73.000</FloatPosition>
+            <Image id="altimeter_backup_knob.bmp" Name="altimeter_backup_knob.bmp">
+                <Transparent>True</Transparent>
+                <Axis>6.000,6.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>NORTH</PointsTo>
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>10000.000</Maximum>
+                    <Script>(A:Kohlsman setting hg:2,inHg) 29.92 - 90 * dgrd</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>79,80</Size>
+            <MouseArea id="Baro Knob">
+                <FloatPosition>0.000,67.000</FloatPosition>
+                <Size>12,13</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>6,13</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+							2 (&gt;K:KOHLSMAN_DEC,number)
+							(G:Var1) 10 - s0 0 &lt; if{ 340 } els{ l0 } (&gt;G:Var1)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>6.000,0.000</FloatPosition>
+                    <Size>6,13</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        	2 (&gt;K:KOHLSMAN_INC,number)
+                        	(G:Var1) 10 + s0 360 &gt; if{ 0 (&gt;G:Var1) } els{ l0 } (&gt;G:Var1)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_BACKUP_ALTIMETER_KOHLSMAN_INHG</DefaultId>
+                    <MetricId>TOOLTIPTEXT_BACKUP_ALTIMETER_KOHLSMAN_MBAR</MetricId>
+                    <EnglishId>TOOLTIPTEXT_BACKUP_ALTIMETER_KOHLSMAN_INHG</EnglishId>
+                </Tooltip>
+            </MouseArea>
+            <Tooltip id="Tooltip">
+                <DefaultId>TOOLTIPTEXT_BACKUP_ALTIMETER_FEET</DefaultId>
+                <MetricId>TOOLTIPTEXT_BACKUP_ALTIMETER_METERS</MetricId>
+                <EnglishId>TOOLTIPTEXT_BACKUP_ALTIMETER_FEET</EnglishId>
+            </Tooltip>
+        </MouseArea>
+    </SimGauge.Gauge>
+</SimBase.Document>

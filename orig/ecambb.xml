@@ -1,0 +1,455 @@
+<!-- BlackBox2 Gauge
+	<blackbox>
+		<output format="LoggerLine" />
+		<display units="yes" />
+		<gauge file="I:\Prepar3D V4\SimObjects\Airplanes\Airbus_A321\panel\Airbus_A321\ecams_ge.xml">
+			<variable name="(A:CIRCUIT GENERAL PANEL on,bool)" />
+			<variable name="(A:FUEL TOTAL QUANTITY,gallons)" />
+			<variable name="(A:SPOILERS HANDLE POSITION,percent)" />
+			<variable name="(A:LIGHT STROBE,bool)" />
+			<variable name="(A:SPOILERS ARMED,bool)" />
+			<variable name="(A:CABIN NO SMOKING ALERT SWITCH,bool)" />
+			<variable name="(A:CABIN SEATBELTS ALERT SWITCH,bool)" />
+			<variable name="(A:Structural Deice Switch,bool)" />
+			<variable name="(A:GENERAL ENG ANTI ICE POSITION:2,bool)" />
+			<variable name="(A:GENERAL ENG ANTI ICE POSITION:1,bool)" />
+			<variable name="(A:AUTO BRAKE SWITCH CB,enum)" />
+			<variable name="(A:TURB ENG IGNITION SWITCH:1,bool)" />
+			<variable name="(A:LIGHT LANDING,bool)" />
+			<variable name="(A:VERTICAL SPEED,feet per minute)" />
+			<variable name="(A:GEAR HANDLE POSITION,bool)" />
+			<variable name="(A:RADIO HEIGHT,feet)" />
+			<variable name="(A:ACCELERATION BODY Z,feet per second squared)" />
+			<variable name="(A:Radio height,feet)" />
+			<variable name="(A:FUEL CROSS FEED,enum)" />
+			<variable name="(A:BRAKE PARKING INDICATOR,bool)" />
+			<variable name="(A:BLEED AIR SOURCE CONTROL,enum)" />
+			<variable name="(A:APU PCT RPM,percent)" />
+			<variable name="(A:FLAPS HANDLE INDEX,number)" />
+			<variable name="(A:Trailing edge flaps1 right angle,degrees)" />
+			<variable name="(A:Trailing edge flaps1 left angle,degrees)" />
+			<variable name="(A:Trailing edge flaps0 right angle,degrees)" />
+			<variable name="(A:Trailing edge flaps0 left angle,degrees)" />
+			<variable name="(A:Fuel weight per gallon,pounds)" />
+			<variable name="(A:Fuel right quantity,gallons)" />
+			<variable name="(A:Fuel tank center quantity,gallons)" />
+			<variable name="(A:Fuel left quantity,gallons)" />
+			<variable name="(A:Turb eng2 fuel flow pph,pounds per hour)" />
+			<variable name="(A:Turb eng1 fuel flow pph,pounds per hour)" />
+			<variable name="(A:Turb eng2 N2,percent)" />
+			<variable name="(A:Turb eng1 N2,percent)" />
+			<variable name="(A:GENERAL ENG2 THROTTLE LEVER POSITION,percent)" />
+			<variable name="(A:GENERAL ENG1 THROTTLE LEVER POSITION,percent)" />
+			<variable name="(A:General eng2 exhaust gas temperature,celsius)" />
+			<variable name="(A:General eng1 exhaust gas temperature,celsius)" />
+			<variable name="(A:Turb eng2 N1,percent)" />
+			<variable name="(A:Turb eng1 N1,percent)" />
+			<variable name="(L:landasap,bool)" />
+			<variable name="(L:tlg,bool)" />
+			<variable name="(L:lowfuel,bool)" />
+			<variable name="(L:allmsgsecam2,enum)" />
+			<variable name="(L:takeoffconfig)" />
+			<variable name="(L:allmsgsecam)" />
+			<variable name="(L:allmsgsecam,enum)" />
+			<variable name="(L:thr2detent,enum)" />
+			<variable name="(L:thr1detent,enum)" />
+		</gauge>
+	</blackbox>
+-->
+<Gauge Name="BlackBox Gauge" Version="1.0">
+
+	<Size X="400" Y="700" />
+<Macro Name="Path">''</Macro>
+		
+	<!-- STRING STORING MACROS FOR FILE NAME -->		
+	<Macro Name="Read4">
+	  (@1_4, enum) 7 &lt;&lt; 0xFFFFFFF &amp; (@1_3, enum) 21 >> 0x7F &amp; | (>@1_4, enum)
+	  (@1_3, enum) 7 &lt;&lt; 0xFFFFFFF &amp; (@1_2, enum) 21 >> 0x7F &amp; | (>@1_3, enum)
+	  (@1_2, enum) 7 &lt;&lt; 0xFFFFFFF &amp; (@1_1, enum) 21 >> 0x7F &amp; | (>@1_2, enum)
+	  (@1_1, enum) 7 &lt;&lt; 0xFFFFFFF &amp; (@2, enum)   @3    0x7F &amp; | (>@1_1, enum)
+	</Macro>
+
+	<Macro Name="ReadKB">
+	  @Read4(@1_4, @1_3_4, 21 >>)
+	  @Read4(@1_3, @1_2_4, 21 >>)
+	  @Read4(@1_2, @1_1_4, 21 >>)
+	  @Read4(@1_1, M:Key)
+	</Macro>
+
+	<Macro Name="Read4Str">
+	  (@1_4, enum) 7 &lt;&lt; 0xFFFFFFF &amp; (@1_3, enum) 21 >> 0x7F &amp; | (>@1_4, enum)
+	  (@1_3, enum) 7 &lt;&lt; 0xFFFFFFF &amp; (@1_2, enum) 21 >> 0x7F &amp; | (>@1_3, enum)
+	  (@1_2, enum) 7 &lt;&lt; 0xFFFFFFF &amp; (@1_1, enum) 21 >> 0x7F &amp; | (>@1_2, enum)
+	  (@1_1, enum) 7 &lt;&lt; 0xFFFFFFF &amp;  @2                0x7F &amp; | (>@1_1, enum)
+	</Macro> 	
+
+	<Macro Name="ReadStr">
+	  @Read4(@1_4, @1_3_4, 21 >>)
+	  @Read4(@1_3, @1_2_4, 21 >>)
+	  @Read4(@1_2, @1_1_4, 21 >>)
+	  @Read4Str(@1_1, r)
+	</Macro>
+
+	<Macro Name="Backspace4">
+	  (@1_1, enum) 7 >> (@1_2, enum) 0x7F &amp; 21 &lt;&lt; | (>@1_1, enum)
+	  (@1_2, enum) 7 >> (@1_3, enum) 0x7F &amp; 21 &lt;&lt; | (>@1_2, enum)
+	  (@1_3, enum) 7 >> (@1_4, enum) 0x7F &amp; 21 &lt;&lt; | (>@1_3, enum)
+	  (@1_4, enum) 7 >> (@2_1, enum) 0x7F &amp; 21 &lt;&lt; | (>@1_4, enum)
+	</Macro>
+
+	<Macro Name="Backspace">
+	  @Backspace4(@1_1, @1_2)
+	  @Backspace4(@1_2, @1_3)
+	  @Backspace4(@1_3, @1_4)
+	  @Backspace4(@1_4, L:BB3PleaseBeZero)
+	</Macro>
+
+	<Macro Name="Clear4">
+	  0 (>@1_1, enum) 0 (>@1_2, enum) 0 (>@1_3, enum) 0 (>@1_4, enum)
+	</Macro>
+
+	<Macro Name="Clear">
+	  @Clear4(@1_1) @Clear4(@1_2) @Clear4(@1_3) @Clear4(@1_4)
+	</Macro>
+
+	<Macro Name="ToString1">
+	  (@1, enum) 21 >> 0x7F &amp; chr
+	  (@1, enum) 14 >> 0x7F &amp; chr scat
+	  (@1, enum)  7 >> 0x7F &amp; chr scat
+	  (@1, enum)       0x7F &amp; chr scat
+	</Macro>
+
+	<Macro Name="ToString4">
+	  @ToString1(@1_4) @ToString1(@1_3) @ToString1(@1_2) @ToString1(@1_1) scat scat scat
+	</Macro>
+
+	<Macro Name="ToString">
+	  @ToString4(@1_4) @ToString4(@1_3) @ToString4(@1_2) @ToString4(@1_1) scat scat scat
+	</Macro>
+		
+	<Macro Name="FromString">
+		:221 d slen 0 > if{ d 0 symb ord @ReadStr(@1) d slen 1 - 1 r ssub g221 }
+	</Macro>	
+	
+	<Update Frequency="18" Hidden="No">
+		(L:SkipCyclesInit, bool) 0 ==
+			if{
+				1 (>L:BB3RecordEveryXCycles, enum)
+				1 (>L:SkipCyclesInit, bool)
+			}
+			
+		(L:BB3RecorderEnabled, bool) 
+			if{ 
+				(L:BB3NumberOfCyclesSkipped, enum) ++ (>L:BB3NumberOfCyclesSkipped, enum)
+				(L:BB3NumberOfCyclesSkipped, enum) (L:BB3RecordEveryXCycles, enum) >= 
+					if{
+(A:CIRCUIT GENERAL PANEL on,bool) (>C:LOGGER:number)
+(A:FUEL TOTAL QUANTITY,gallons) (>C:LOGGER:number)
+(A:SPOILERS HANDLE POSITION,percent) (>C:LOGGER:number)
+(A:LIGHT STROBE,bool) (>C:LOGGER:number)
+(A:SPOILERS ARMED,bool) (>C:LOGGER:number)
+(A:CABIN NO SMOKING ALERT SWITCH,bool) (>C:LOGGER:number)
+(A:CABIN SEATBELTS ALERT SWITCH,bool) (>C:LOGGER:number)
+(A:Structural Deice Switch,bool) (>C:LOGGER:number)
+(A:GENERAL ENG ANTI ICE POSITION:2,bool) (>C:LOGGER:number)
+(A:GENERAL ENG ANTI ICE POSITION:1,bool) (>C:LOGGER:number)
+(A:AUTO BRAKE SWITCH CB,enum) (>C:LOGGER:number)
+(A:TURB ENG IGNITION SWITCH:1,bool) (>C:LOGGER:number)
+(A:LIGHT LANDING,bool) (>C:LOGGER:number)
+(A:VERTICAL SPEED,feet per minute) (>C:LOGGER:number)
+(A:GEAR HANDLE POSITION,bool) (>C:LOGGER:number)
+(A:RADIO HEIGHT,feet) (>C:LOGGER:number)
+(A:ACCELERATION BODY Z,feet per second squared) (>C:LOGGER:number)
+(A:Radio height,feet) (>C:LOGGER:number)
+(A:FUEL CROSS FEED,enum) (>C:LOGGER:number)
+(A:BRAKE PARKING INDICATOR,bool) (>C:LOGGER:number)
+(A:BLEED AIR SOURCE CONTROL,enum) (>C:LOGGER:number)
+(A:APU PCT RPM,percent) (>C:LOGGER:number)
+(A:FLAPS HANDLE INDEX,number) (>C:LOGGER:number)
+(A:Trailing edge flaps1 right angle,degrees) (>C:LOGGER:number)
+(A:Trailing edge flaps1 left angle,degrees) (>C:LOGGER:number)
+(A:Trailing edge flaps0 right angle,degrees) (>C:LOGGER:number)
+(A:Trailing edge flaps0 left angle,degrees) (>C:LOGGER:number)
+(A:Fuel weight per gallon,pounds) (>C:LOGGER:number)
+(A:Fuel right quantity,gallons) (>C:LOGGER:number)
+(A:Fuel tank center quantity,gallons) (>C:LOGGER:number)
+(A:Fuel left quantity,gallons) (>C:LOGGER:number)
+(A:Turb eng2 fuel flow pph,pounds per hour) (>C:LOGGER:number)
+(A:Turb eng1 fuel flow pph,pounds per hour) (>C:LOGGER:number)
+(A:Turb eng2 N2,percent) (>C:LOGGER:number)
+(A:Turb eng1 N2,percent) (>C:LOGGER:number)
+(A:GENERAL ENG2 THROTTLE LEVER POSITION,percent) (>C:LOGGER:number)
+(A:GENERAL ENG1 THROTTLE LEVER POSITION,percent) (>C:LOGGER:number)
+(A:General eng2 exhaust gas temperature,celsius) (>C:LOGGER:number)
+(A:General eng1 exhaust gas temperature,celsius) (>C:LOGGER:number)
+(A:Turb eng2 N1,percent) (>C:LOGGER:number)
+(A:Turb eng1 N1,percent) (>C:LOGGER:number)
+(L:landasap,bool) (>C:LOGGER:number)
+(L:tlg,bool) (>C:LOGGER:number)
+(L:lowfuel,bool) (>C:LOGGER:number)
+(L:allmsgsecam2,enum) (>C:LOGGER:number)
+(L:takeoffconfig) (>C:LOGGER:number)
+(L:allmsgsecam) (>C:LOGGER:number)
+(L:allmsgsecam,enum) (>C:LOGGER:number)
+(L:thr2detent,enum) (>C:LOGGER:number)
+(L:thr1detent,enum) (>C:LOGGER:number)
+						(L:BB3LoggerRecordsWritten, enum) ++ (>L:BB3LoggerRecordsWritten, enum)					  
+						0 (>L:BB3NumberOfCyclesSkipped, enum) 
+					}
+			} 	
+			
+		(P:ABSOLUTE TIME, seconds) (L:BB3AbsoluteTimePreviousCycle, seconds) - (>L:BB3IntervalTime, seconds)
+		(P:ABSOLUTE TIME, seconds) (>L:BB3AbsoluteTimePreviousCycle, seconds)
+	
+	</Update>
+	
+	<Element Name="ELEMENTS">	
+		<Element Name="BACKGROUND RECTANGLE">
+			<Position X="0" Y="0"/>
+			<Rectangle Width="200" Height="113" FillColor="gainsboro" Bright="Yes"/>
+		</Element>	
+		
+		<Element Name="LABEL: FILENAME">	
+			<Position X="5" Y="5"/>
+			<FormattedText X="95" Y="12" Font="Verdana" FontSize="8" Color="#101010" BackgroundColor="gainsboro" Bright="Yes" >
+				<String>FILENAME.CSV or .TXT</String>
+			</FormattedText>
+		</Element>		
+		<Element Name="FILE NAME TEXT ENTRY BOX">	
+			<Position X="5" Y="18"/>		
+			<Rectangle Width="150" Height="25" FillColor="white" LineWidth="0" Bright="Yes"/>			
+		</Element>	
+		<Element Name="FILE NAME ENTRY BOX OUTLINE">	
+			<Visible>(L:BB3FileNameTextEntryEnabled, bool)</Visible>			
+			<Position X="5" Y="18"/>		
+			<Rectangle Width="150" Height="25" Color="#101010" LineWidth="0" Bright="Yes"/>			
+		</Element>	
+		<Element Name="FILE NAME READBACK">
+			<Position X="7" Y="24" /> 
+			<FormattedText X="141" Y="12"  Adjust="left" Fixed="Yes" Font="verdana" Color="#101010"  BackgroundColor="white" Bright="Yes" FontSize="10">
+				<String>%(@ToString(L:BB3FDRName))%!s!%</String>		
+			</FormattedText>
+		</Element>	
+		<Element Name="FILE NAME CLEAR BUTTON">	
+			<Position X="160" Y="18"/>		
+			<Rectangle Width="35" Height="25" FillColor="royalblue" Bright="Yes"/>			
+		</Element>	
+		<Element Name="FILE NAME CLEAR BUTTON TEXT">
+			<Position X="165" Y="26"/>
+			<FormattedText X="28" Y="12" Font="Arial Bold" FontSize="8" Color="white" BackgroundColor="royalblue" Bright="Yes" >
+				<String>CLEAR</String>
+			</FormattedText>
+		</Element>
+		
+		<Element Name="LABEL: RECORD EVERY">	
+			<Position X="5" Y="50"/>
+			<FormattedText X="65" Y="20" Font="Verdana" FontSize="8" Color="#101010" BackgroundColor="gainsboro" Bright="Yes" >
+				<String>RECORD EVERY\n
+				"X" CYCLES
+				</String>
+			</FormattedText>
+		</Element>
+		<Element Name="CYCLE SKIP NUMBER ENTRY BOX">		
+			<Position X="5" Y="73"/>	
+			<Rectangle Width="35" Height="25" FillColor="white" LineWidth="0" Bright="Yes"/>			
+		</Element>	
+		<Element Name="CYCLE SKIP NUMBER ENTRY BOX - OUTLINE">	
+			<Visible>(L:BB3CycleSkipNumberEntryEnabled, bool)</Visible>		
+			<Position X="5" Y="73"/>	
+			<Rectangle Width="35" Height="25" Color="#101010" LineWidth="0" Bright="Yes"/>			
+		</Element>	
+		<Element Name="CYCLE SKIP CLEAR BUTTON">		
+			<Position X="45" Y="73"/>	
+			<Rectangle Width="35" Height="25" FillColor="royalblue" LineWidth="0" Bright="Yes"/>			
+		</Element>
+		<Element Name="CYCLE SKIP RESET BUTTON TITLE">
+			<Position X="50" Y="81"/>
+			<FormattedText X="28" Y="12" Font="Arial Bold" FontSize="8" Color="white" BackgroundColor="royalblue" Bright="Yes" >
+				<String>RESET</String>
+			</FormattedText>
+		</Element>		
+		<Element Name="CYCLE SKIP READBACK">
+			<Position X="7" Y="78" /> 
+			<FormattedText X="27" Y="12" Adjust="left" Fixed="Yes" Font="Arial" Color="#101010" FontSize="12" BackgroundColor="white" Bright="Yes">
+				<String>%((L:BB3RecordEveryXCycles, enum))%!d!%</String>		
+			</FormattedText>
+		</Element>
+
+		
+		<Element Name="LABEL: ON/OFF">	
+			<Position X="160" Y="60"/>
+			<FormattedText X="35" Y="12" Font="Verdana" FontSize="8" Color="#101010" BackgroundColor="gainsboro" Bright="Yes" >
+				<String>ON/OFF</String>
+			</FormattedText>
+		</Element>		
+		<Element Name="RECORD BUTTON: SHADOW">	
+			<Visible>(L:BB3RecorderEnabled, bool) 0 ==</Visible>			
+			<Position X="163" Y="76"/>		
+			<Rectangle Width="35" Height="25" FillColor="#334433" Bright="No"/>			
+		</Element>	
+		<Element Name="RECORD BUTTON: OFF">	
+			<Position X="160" Y="73"/>		
+			<Rectangle Width="35" Height="25" FillColor="red" Bright="Yes"/>			
+		</Element>
+		<Element Name="RECORD BUTTON: OFF and PAUSED">	
+			<Visible>(L:BB3IntervalTime, seconds) 0 ==</Visible>		
+			<Position X="160" Y="73"/>		
+			<Rectangle Width="35" Height="25" FillColor="gray" Bright="Yes"/>			
+		</Element>
+		<Element Name="LABEL: SIM PAUSED">	
+			<Visible>(L:BB3IntervalTime, seconds) 0 ==</Visible>				
+			<Position X="165" Y="79"/>
+			<FormattedText X="25" Y="14" Font="verdana bold" FontSize="6" Color="white" BackgroundColor="gray" Adjust="Center" Bright="Yes" >
+				<String>SIM IS\n
+				PAUSED
+				</String>
+			</FormattedText>
+		</Element>			
+		<Element Name="RECORD BUTTON: ON">	
+		<Visible>(L:BB3RecorderEnabled, bool)</Visible>		
+			<Position X="160" Y="73"/>	
+			<Rectangle Width="35" Height="25" FillColor="#00ff00" LineWidth="0" Bright="Yes"/>			
+		</Element>			
+		<Element Name="RECORD BUTTON: OUTLINE">	
+		<Visible>(L:BB3RecorderEnabled, bool)</Visible>		
+			<Position X="160" Y="73"/>	
+			<Rectangle Width="35" Height="25" Color="#101010" LineWidth="0" Bright="Yes"/>			
+		</Element>		
+		
+		<Element Name="LABEL: NUM CYCLES">	
+			<Position X="98" Y="50"/>
+			<FormattedText X="45" Y="20" Font="Verdana" FontSize="8" Color="#101010" BackgroundColor="gainsboro" Bright="Yes">
+				<String># CYCLES\n
+				RECORDED
+				</String>
+			</FormattedText>
+		</Element>		
+		<Element Name="NUMBER OF RECORDS WRITTEN">
+			<Position X="98" Y="78" />				
+			<FormattedText X="45" Y="12"  Adjust="left" Fixed="Yes" Font="Arial" Color="#101010" BackgroundColor="gainsboro" Bright="Yes" FontSize="12">
+			<String>%((L:BB3LoggerRecordsWritten, enum))%!d!%</String>		
+			</FormattedText>
+		</Element>	
+		<Element Name="LABEL: BB3 - LOGGER">	
+			<Position X="5" Y="102"/>
+			<FormattedText X="70" Y="8" Font="Verdana" FontSize="6" Color="dimgray" BackgroundColor="gainsboro" Bright="Yes" >
+				<String>BlackBox3 - LOGGER</String>
+			</FormattedText>
+		</Element>
+		<Element Name="LABEL: SIM IS PAUSED">
+			<Visible>(L:BB3IntervalTime, seconds) 0 == (L:BB3RecorderEnabled, bool) 1 == and</Visible>
+			<Position X="80" Y="102"/>
+			<FormattedText X="65" Y="8" Font="Verdana" FontSize="6" Color="#c80000" BackgroundColor="gainsboro" Bright="Yes" >
+				<String>%\{blnk}%SIMULATION PAUSED</String>
+			</FormattedText>
+		</Element>	
+		<Element Name="LABEL: KEYBOARD ENTRY ENABLED">
+			<Visible>(L:BB3FileNameTextEntryEnabled, bool) (L:BB3CycleSkipNumberEntryEnabled, bool) or</Visible>
+			<Position X="80" Y="102"/>
+			<FormattedText X="85" Y="8" Font="Verdana" FontSize="6" Color="#101010" BackgroundColor="gainsboro" Bright="Yes" >
+				<String>\{rev}%KEYBOARD ENTRY ENABLED</String>
+			</FormattedText>
+		</Element>			
+		<Element Name="RELOAD">	
+			<Position X="184" Y="4"/>
+			<FormattedText X="12" Y="10" Font="Arial Bold" FontSize="8" Color="#c80000" BackgroundColor="gainsboro" Bright="Yes" >
+				<String>\{rev}% R </String>
+			</FormattedText>
+		</Element>	
+	</Element>	
+
+	<Mouse>
+		<!-- RECORDER ON-OFF BUTTON --> 		
+		<Area Left="160" Top="73" Width="35" Height="25">
+			<Cursor Type="Hand" /> 
+			<Click> 
+				0 d (>L:BB3FileNameTextEntryEnabled, bool) (>L:BB3CycleSkipNumberEntryEnabled, bool)
+					(L:BB3RecorderEnabled, bool) 1 == 
+						if{ 
+							1 (>C:LOGGER:closeWrite) 
+						}
+					(L:BB3RecorderEnabled, bool) 0 == 
+						if{ 
+							0 (>L:BB3LoggerRecordsWritten, enum)					
+							@Path @ToString(L:BB3FDRName) scat
+(>C:LOGGER:openWrite)
+						}
+					(L:BB3RecorderEnabled, bool) ! (>L:BB3RecorderEnabled, bool) 
+					0 (>L:BB3NumberOfCyclesSkipped, enum)	
+			</Click>
+		</Area>
+		
+		<!-- FILE NAME TEXT ENTRY BOX  -->				
+		<Area Left="5" Top="18" Width="150" Height="25">
+			<Cursor Type="Hand" /> 
+			<Click> 
+				(L:BB3FileNameTextEntryEnabled, bool) ! (>L:BB3FileNameTextEntryEnabled, bool)
+				(L:BB3FileNameTextEntryEnabled, bool) 1 == if{ 0 (>L:BB3CycleSkipNumberEntryEnabled, bool) } 
+			</Click>
+		</Area>	
+	
+		<!-- CLEAR TEXT ENTRY BOX  -->				
+		<Area Left="160" Top="18" Width="35" Height="25">
+			<Cursor Type="Hand" /> 
+			<Click> 
+				@Clear(L:BB3FDRName)
+			</Click>
+		</Area>	
+		
+		<!-- CYCLES TO SKIP TEXT ENTRY BOX  -->				
+		<Area Left="5" Top="73" Width="35" Height="25">
+			<Cursor Type="Hand" /> 
+			<Click> 
+				(L:BB3CycleSkipNumberEntryEnabled, bool) ! (>L:BB3CycleSkipNumberEntryEnabled, bool)
+				(L:BB3CycleSkipNumberEntryEnabled, bool) 1 == if{ 0 (>L:BB3FileNameTextEntryEnabled, bool) }
+			</Click>
+		</Area>	
+		
+		<!-- CLEAR CYCLES TO SKIP NUMBER  -->				
+		<Area Left="45" Top="73" Width="35" Height="25">
+			<Cursor Type="Hand" /> 
+			<Click>
+				0 (>L:BB3CyclesSkipNum4,enum)			
+				0 (>L:BB3CyclesSkipNum3,enum)
+				0 (>L:BB3CyclesSkipNum2,enum)
+				0 (>L:BB3CyclesSkipNum1,enum)					
+				1 (>L:BB3RecordEveryXCycles, enum)
+			</Click>
+		</Area>	
+		
+		<!-- PANELS or AIRCRAFT RELOAD  -->				
+		<Area Left="159" Top="3" Width="35" Height="12">
+			<Cursor Type="Hand" /> 
+      <Click>
+        (A:Fuel weight per gallon, pounds per gallon) 0 ==
+          if{ (>K:RELOAD_USER_AIRCRAFT) }  <!-- FSX -->
+          els{ (>K:RELOAD_PANELS) }        <!-- FS9 -->
+      </Click>
+		</Area>			
+	</Mouse>
+	
+	<Keys>
+		<On Key="Ascii"> <!-- FILE NAME KEYBOARD ENTRY -->
+			<Visible>(L:BB3FileNameTextEntryEnabled, bool)</Visible>
+			@ReadKB(L:BB3FDRName)
+		</On>
+
+		<On Key="Backspace"> <!-- FILE NAME BACKSPACE -->
+			<Visible>(L:BB3FileNameTextEntryEnabled, bool)</Visible>
+			@Backspace(L:BB3FDRName)
+		</On>	
+		
+		<On Key="Ascii"> <!-- CYCLES SKIP KEYBOARD ENTRY -->
+			<Visible>(L:BB3CycleSkipNumberEntryEnabled, bool) 1 ==</Visible>	
+				(L:BB3CyclesSkipNum3,enum) (>L:BB3CyclesSkipNum4,enum)			
+				(L:BB3CyclesSkipNum2,enum) (>L:BB3CyclesSkipNum3,enum)
+				(L:BB3CyclesSkipNum1,enum) (>L:BB3CyclesSkipNum2,enum)
+				(M:Key) (>L:BB3CyclesSkipNum1,enum)
+				(L:BB3CyclesSkipNum4,enum) chr 1000 *				
+				(L:BB3CyclesSkipNum3,enum) chr 100 *
+				(L:BB3CyclesSkipNum2,enum) chr 10 *
+				(L:BB3CyclesSkipNum1,enum) chr 1 * + + + 1 max
+				(>L:BB3RecordEveryXCycles, enum)
+		</On>	
+	</Keys>	
+</Gauge>

@@ -1,0 +1,91 @@
+<SimBase.Document Type="AceXML" version="1,0">
+    <Descr>AceXML Document</Descr>
+    <Filename>ias_backup.xml</Filename>
+    <SimGauge.Gauge id="ias_backup" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>79,79</Size>
+        <Image id="Image" Name="ias_background.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        
+        <Element id="Airspeed Needle">
+            <FloatPosition>38.833,39.583</FloatPosition>
+            <Image id="Image" Name="ias_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>3,34</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>NORTH</PointsTo>
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>450.000</Maximum>
+                    <Script>(A:Airspeed select indicated or true:2, knots)</Script>
+                </Expression>
+                <FailureTable id="FailureTable">
+                    <Failure id="Pitot Static">
+                        <Fail_Key>SYSTEM_PITOT_STATIC</Fail_Key>
+                    </Failure>
+                    <Failure id="Airspeed">
+                        <Fail_Key>GAUGE_AIRSPEED</Fail_Key>
+                        <Fail_Action>Freeze</Fail_Action>
+                    </Failure>
+                </FailureTable>
+                <Delay id="Delay">
+                    <DelayValue>180.000</DelayValue>
+                    <DelayUnits>DEGREES_PER_SECOND</DelayUnits>
+                </Delay>
+                <NonlinearityTable id="NonlinearityTable">
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>0.000</ExpressionResult>
+                        <FloatPosition>38.000,7.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>50.000</ExpressionResult>
+                        <FloatPosition>58.000,14.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>100.000</ExpressionResult>
+                        <FloatPosition>69.000,32.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>150.000</ExpressionResult>
+                        <FloatPosition>68.000,51.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>200.000</ExpressionResult>
+                        <FloatPosition>54.000,67.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>250.000</ExpressionResult>
+                        <FloatPosition>38.000,72.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>300.000</ExpressionResult>
+                        <FloatPosition>16.000,61.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>350.000</ExpressionResult>
+                        <FloatPosition>7.000,44.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>400.000</ExpressionResult>
+                        <FloatPosition>11.000,24.500</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>450.000</ExpressionResult>
+                        <FloatPosition>27.000,10.000</FloatPosition>
+                    </NonlinearityEntry>
+                </NonlinearityTable>
+            </Rotation>
+        </Element>
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>79,79</Size>
+            <Tooltip id="Tooltip">
+                <DefaultId>TOOLTIPTEXT_BACKUP_AIRSPEED_KNOTS</DefaultId>
+                <MetricId>TOOLTIPTEXT_BACKUP_AIRSPEED_KILOS</MetricId>
+                <EnglishId>TOOLTIPTEXT_BACKUP_AIRSPEED_KNOTS</EnglishId>
+            </Tooltip>
+        </MouseArea>
+    </SimGauge.Gauge>
+</SimBase.Document>
